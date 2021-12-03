@@ -1,0 +1,40 @@
+.informacion{
+    padding: 2rem 0;
+
+    @include telefono{
+
+      @include grid(2 , $separacion);
+       
+    }
+
+}
+
+.informacion-contenido{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; //Estas lineas sirven para tomar la propiedad de flex que da por defecto en horizontal, luego
+    //Especificamos la difreccion y como le cambiamos a columnas justify content alinea de forma vertical
+
+    h2{
+        margin-bottom: 4rem;
+    }
+
+    .fecha{
+
+        font-weight: $bold;
+        font-size: 2rem;
+        color: $rosa;
+
+    }
+
+    .texto{
+        line-height: 1.5;
+        
+    }
+
+}
+.imagen{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

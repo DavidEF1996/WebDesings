@@ -1,0 +1,11 @@
+.boton-amarillo {
+  @include boton($amarillo, inline-block);
+} //este mixin ocupa todo el espacio y es amarillo
+
+.boton-amarillo-block {
+  @include boton($amarillo, block);
+} //este mixin ocupa solo el necesario y es amarillo
+
+.boton-verder {
+  @include boton($verde, inline-block);
+}

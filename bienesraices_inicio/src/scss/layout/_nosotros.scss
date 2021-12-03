@@ -1,0 +1,35 @@
+.contenedor-nosotros {
+  @include telefono {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+
+    h4 {
+      margin: 0;
+      margin-bottom: 3rem;
+      display: flex;
+      justify-content: flex-start;
+    }
+  }
+}
+
+.contenedor {
+  h1 {
+    font-weight: $bold;
+  }
+}
+
+.texto-nosotros {
+  font-weight: $regular;
+  font-size: 2.2rem;
+  margin: 0;
+  padding-left: 1rem 0 3rem 0;
+
+  color: $negro;
+}
+
+.dark-mode {
+  .texto-nosotros {
+    color: $blanco;
+  }
+}

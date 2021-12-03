@@ -1,0 +1,47 @@
+.iconos-nosotros {
+  @include telefono {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 2rem;
+  }
+}
+
+.icono {
+  text-align: center;
+  img {
+    height: 10rem;
+  }
+  h3 {
+    text-transform: uppercase;
+  }
+}
+
+.iconos-caracteristicas {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  max-width: 40rem;
+
+  li {
+    flex: 1; //distribuye 1 pixel a cada mienbro de la lista
+    display: flex;
+    img {
+      flex: 0 0 5rem;
+      margin-right: 1rem;
+    }
+    p {
+      font-weight: $black;
+    }
+  }
+}
+
+.dark-mode {
+  .imagen-anuncio {
+    .icono {
+      filter: invert(100%);
+    }
+    .precio {
+      color: $verde;
+    }
+  }
+}

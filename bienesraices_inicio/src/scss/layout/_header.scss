@@ -1,0 +1,44 @@
+/**Esto es para que de acuerdo a si el navegador soporta use o no use imagenes webp**/
+.no-webp .inicio {
+  background-image: url(../../../build/img/header.jpg);
+}
+
+.webp .inicio {
+  background-image: url(../../../build/img/header.jpg);
+}
+
+.header {
+  background-color: $grisOscuro;
+  padding: 1rem 0 3rem 0;
+
+  &.inicio {
+    background-position: center center; //imagen centrada horizontal y vertical
+    background-size: cover; //toma todo el espacio disponible
+
+    // como header e inicio estan al mismo nivel, con el & hacemos referencia a el mismo elemento
+    @include telefono {
+      min-height: 70rem;
+    }
+
+    .contenido-header {
+      // cuando inicio existe aplica el 70rem para que llene todo el espacio para la imagen
+      @include telefono {
+        min-height: 70rem; // para que llene todo el espacio de la imagen el contendio-header
+      }
+    }
+  }
+}
+
+.contenido-header {
+  display: flex; // le hace horizontal
+  flex-direction: column; // cambia la direccion para que no afecte a la barra
+  justify-content: space-between; // toma todo el ancho posible en forma de columna
+
+  h1 {
+    color: $blanco;
+    text-align: left; // manda el texto a la izquierda
+    font-weight: $bold;
+    line-height: 2;
+    max-width: 60rem; //para el salto de linea
+  }
+}

@@ -1,0 +1,26 @@
+@include telefono {
+  .contenedor-anuncios {
+    @include grid(3, 2rem);
+    //Cuando la pantalla sea mas grande que un telefono
+    //se aplica este mixin de 3 columnas con separacion de 2rem
+  }
+}
+
+.anuncio {
+  border: 1px solid lighten($gris, 10);
+  background-color: $gris;
+
+  .contenido-anuncio {
+    padding: 2rem;
+  }
+  h3,
+  p {
+    margin: 0;
+  }
+}
+
+.precio {
+  color: $verde;
+  font-weight: $bold;
+  font-size: 3rem;
+}

@@ -1,0 +1,21 @@
+//Código SASS, caracteristica de separar en diferentes archivos el codigo
+//$fuentePrincipal: "Arial";
+@import 'base/normalize';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&display=swap');
+@import 'base/variables'; //No es necesario el guion bajo
+@import 'base/mixin';
+@import 'base/globales';
+@import 'base/utilidades';
+
+@import 'layout/header';
+@import 'layout/video';
+@import 'layout/informacion';
+@import 'layout/lineup';
+@import 'layout/galeria';
+@import 'layout/boletos';
+@import 'layout/footer';
+
+
+//El orden es importante, primero se pone las variables y luego los espacios globales ya que sino
+//como usar las variables en los globales si aun no estan definidas?
+

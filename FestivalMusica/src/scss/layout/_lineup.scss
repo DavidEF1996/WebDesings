@@ -1,0 +1,96 @@
+.lineup{
+    background-color: $rosa;
+    padding: $separacion 0;
+
+    h3, p{
+        text-align: center;
+        color: $blanco;
+
+        //Con esto centramos todo
+    }
+
+    .dia{
+        text-transform: uppercase;
+        margin: $separacion;
+    }
+}
+
+.escenarios-contenedor{
+
+    @include tablet{
+        @include grid(2, $separacion);
+    }
+
+    
+    .escenario{
+        padding-top: $separacion/2;
+    }
+
+    .nombre-escenario{
+     
+        color:$negro;
+        font-size: 2rem;
+        font-weight: $delgada;
+
+        &:after{
+            //Se crea el elemento que ira despues del titulo, se le da un espaciado 
+            // se especifica el tamaño de la imagen y que no se repita
+            content: ''; //como es un pseudoelemento que no existe se trabaja con un content
+            width: 20rem;
+            height: 10rem;
+            display: block;
+            margin: 2rem auto 0 auto;
+            background-size: 15rem;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    }
+}
+
+
+//Creamos dos especificaciones dentro de nombre-escenario, pero la una con la clase de rock y la otra edm
+// en esta parte se especifica que vamos a cargar la imagen en el after y listo
+
+.edm .nombre-escenario{
+    &:after{
+        background-image: url('../../../build/img/icono_edm.webp');
+    }
+}
+
+.rock .nombre-escenario{
+    &:after{
+        
+        background-image: url('../../../build/img/icono_rock.webp');
+    }
+  
+
+}
+
+.calendario{
+    padding: 0;
+    list-style: none;
+    li{
+        padding: $separacion/2; //para que las franjas sean mas grandes
+        font-weight: $bold;
+    }
+    span{
+        font-weight: $regular;
+    }
+}
+
+
+.bg-verde .calendario li:nth-child(2n+1){
+    /**
+    El 2n + 1 va aumentando el contador, por ejemplo: 2(0) +1=1, luego 2(1)+1 =3 y asi va saltando 1
+    **/
+    background-color: darken($verde, 10); //darken es una funcion exclusiva de sass y logra aplicar un poco de negro al color que elijas
+
+}
+
+.bg-amarillo .calendario li:nth-child(2n+1){
+    /**
+    El 2n + 1 va aumentando el contador, por ejemplo: 2(0) +1=1, luego 2(1)+1 =3 y asi va saltando 1
+    **/
+    background-color: darken($amarillo, 10); //darken es una funcion exclusiva de sass y logra aplicar un poco de negro al color que elijas
+
+}

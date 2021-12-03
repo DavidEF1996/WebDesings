@@ -1,0 +1,79 @@
+//Esta es la forma anidada de usar SASS, donde header tiene un background, y sus hijos
+// contenido-header tiene 1 rem y su h1 que pertenece tbn a header tiene un rem
+.header{
+        background-color: $verde;
+        
+     
+      /*  @include telefono{
+            background-color: $morado;
+        }*/
+        @include telefono{
+            background-color: $rosa;
+          
+           
+        }
+       /* @include desktop{
+            background-color: $amarillo;
+        }*/
+
+        .contenido-header{
+            padding: $separacion/2.5 0;
+
+           
+            //Esto se ve bien en una pantalla grande por lo que lo guardamos en media query
+          /*  display: flex;
+            justify-content: space-between; //Esto alinea horizontalmente
+            align-items: center; //Centrar verticalmente*/
+
+            @include telefono{
+            display: flex;
+            justify-content: space-between; //Esto alinea horizontalmente
+            align-items: center;
+            }
+        }    
+        h1{
+          color: $blanco;
+        //  @include nuevoMixin; //Esta es la forma sencilla de llamar a un mixin
+        margin-bottom: 1rem; //Para dispositivos pequeños
+        text-align: center; //Centrar el titulo en dispositivos pequeños
+        @include tablet{
+            margin-bottom: 0;
+        }
+
+        }   
+        
+        &.fijo {
+            position: fixed; //esto fija la barra 
+            width: 100%;
+            box-shadow: 0 .3rem .4rem #444;
+           
+           
+        }
+}
+//Si saque la navegacion principal es porque el selector se vuelve muy grande pero si puede quedar 
+//dentro del header anidado ya que es hijo de header y contenido header
+.navegacion-principal{
+    //Agregar separacion entre enlaces
+    //Técnica de flex
+    display: flex;
+    gap: 2rem; //Gap no tiene mucho soporte
+
+    //Técnica de grid
+    /*display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2rem;*/
+    justify-content: center;
+
+    a{
+        color: $blanco;
+        font-size: 2rem;
+       
+
+        &:hover{   //Este amperson hace referencia al elemento padre y mantiene la anidacion ya que si se pusiera la a de enlace
+            //maracaria error por tener dos enlaces metidos 
+            color: $amarillo;
+        }
+    }
+
+    
+}

@@ -1,0 +1,85 @@
+.derecha {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include telefono {
+    align-items: flex-end;
+  }
+
+  .dark-mode-boton {
+    width: 3rem;
+
+    filter: invert(100%);
+  }
+}
+
+.barra {
+  display: flex;
+  flex-direction: column;
+  padding-top: 3rem;
+  align-items: center;
+
+  @include telefono {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-items: flex-end;
+  }
+}
+
+.navegacion {
+  //display: none; //no se muestra el menu de navegacion en pantallas pequeñas
+
+  //para animar el ocultamiento del menu usamos el siguiente codigo que reemplaza el de arriba
+  visibility: hidden; //para ocultar
+  opacity: 0; //para que no se vea
+  height: 0;
+  transition: visibility 0.3s ease-in-out, opacity 0.5s linear,
+    heigh 0.5s linear; //damos animacion a las transiciones
+
+  @include telefono {
+    //si agrandamos la ventana con el menu oculto, este no se vera por eso agregamos aqui tambien opacity y visibility
+    opacity: 1;
+    visibility: visible;
+    display: flex; // y en pantallas grandes el menu de  navegacion tiene flex
+  }
+  a {
+    color: $blanco;
+    text-decoration: none;
+    font-size: 2.2rem;
+    display: block; //todo el ancho disponible
+    text-align: center;
+
+    @include telefono {
+      margin-right: 2rem;
+
+      //eliminar el margin del ultimo elemento
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+//menu hamburguesa
+.mobile-menu {
+  @include telefono {
+    display: none;
+  }
+  img {
+    width: 5rem;
+  }
+}
+
+//para mostrar el menu desde el hamburguesa
+
+.mostrar {
+  /*display: flex;
+  flex-direction: column;
+  @include telefono {
+    flex-direction: row;
+  }*/
+  visibility: visible; //esto muestra el menu reemplaza el codigo de arriba ya que permite animar
+  opacity: 1; //cambia la opacidad para que se muestre
+  height: auto;
+}

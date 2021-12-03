@@ -1,0 +1,41 @@
+//Los mixin son propios de SASS
+
+@mixin nuevoMixin {
+    font-size: 3rem;
+}
+//Cuando tengas codigo que se repite mucho usa mixins
+
+
+@mixin  telefono {
+    @media(min-width: $telefono){
+     @content;  //Esta es la forma de habilitar para que el mixin soporte diferente codigo que se le pase
+     //en diferentes lugares que sea llamado, por ejemplo: en este caso se uso un mixin con tres valores para centrar
+     // y un display none cuando se le llamo en navegacion
+    }
+    
+}
+
+@mixin  tablet {
+    @media(min-width: $table){
+     @content;  //Esta es la forma de habilitar para que el mixin soporte diferente codigo que se le pase
+     //en diferentes lugares que sea llamado, por ejemplo: en este caso se uso un mixin con tres valores para centrar
+     // y un display none cuando se le llamo en navegacion
+    }
+    
+}
+
+@mixin  desktop {
+    @media(min-width: $desktop){
+     @content;  //Esta es la forma de habilitar para que el mixin soporte diferente codigo que se le pase
+     //en diferentes lugares que sea llamado, por ejemplo: en este caso se uso un mixin con tres valores para centrar
+     // y un display none cuando se le llamo en navegacion
+    }
+    
+}
+
+
+@mixin  grid ($columnas, $espaciado){
+    display: grid;
+    grid-template-columns:repeat($columnas, 1fr) ;
+    gap: $espaciado;
+}

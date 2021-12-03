@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Bienes Raices</title>
+    <link href="build/css/app.css" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header"> <!--Este header es el principal de la navegacion, aqui va la imagen de fondo-->
+        <div class="contenedor contenido-header"> <!--Este div es para centrar dentro del header y contenido ya esta creada
+            en los globales, y tiene otra contenido-header para darle estilos individuales-->
+
+            <div class="barra"> <!--Este div contiene la barra de navegacion-->
+                    <a href="index.html"> <!--Se considera un estandar que al dar click a la imagen lleve a la  pagina principal, entonces si damos click va a ir a la pagina principal-->
+                        <img src="build/img/logo.svg" alt="logotipo"> <!--Imagen de fondo y svg es buena opcion-->
+                    </a>
+
+                    <div class="mobile-menu"> <!--Este esera el menu de tipo hamburguesa-->
+                        <img src="build/img/barras.svg" alt="iconohamburguesa">
+                    </div>
+
+                    <div class="derecha">
+
+                        <img class="dark-mode-boton" src="build/img/dark-mode.svg">
+                        <nav class="navegacion">
+                            <a href="nosotros.html">Nosotros</a>
+                            <a href="anuncios.html">Anuncions</a>
+                            <a href="blog.html">Blog</a>
+                            <a href="contacto.html">Contacto</a>
+                        </nav>
+
+                    </div>
+            </div>
+            
+           
+        </div>
+    </header>
+    
+    <main class="contenedor seccion"> <!--Se crea el contenedor principal y usamos seccion para tener margin y padding, este esta creado en utilidades-->
+        <h1>Conoce Sobre Nosotros</h1>
+
+        <div class="contenedor-nosotros">
+            <div class="imagen-nosotros">
+                <picture>
+                    <source srcset="build/img/nosotros.webp" type="image/webp">
+                    <source srcset="build/img/nosotros.jpg" type="image/jpg">
+                    <img loading="lazy" src="build/img/nosotros.jpg" alt="texto de nosotros">
+                </picture>
+            </div>
+
+            <div class="">
+                <h4>25 Años de Experiencia</h4>
+                <blockquote class="texto-nosotros">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum quasi odio qui voluptatibus hic perferendis ullam, a sunt eius nostrum autem consequatur veritatis expedita porro excepturi repellendus quos commodi praesentium!
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis illo, adipisci porro, neque, quis quidem laborum culpa nobis accusamus a iusto magni beatae consequatur ullam corrupti minima! Ipsa, accusantium sit.
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint provident iusto iste vitae esse. Itaque repellendus pariatur eius exercitationem nam tenetur nemo sapiente, ratione aspernatur, laborum nulla fugit, at nobis!
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores porro dolor, ipsam nam assumenda ratione dignissimos quas, cupiditate dolorum laboriosam nobis eligendi asperiores maxime doloribus obcaecati? Sunt aliquam rem suscipit!
+                </blockquote>
+            </div>
+
+        </div>
+    </main>
+
+    <main class="contenedor seccion"> <!--Se crea el contenedor principal y usamos seccion para tener margin y padding, este esta creado en utilidades-->
+        <h1>Más Sobre Nostoros</h1>
+
+        <div class="iconos-nosotros"> <!--Para dar estilo a los iconos-->
+            <div class="icono"> <!--Para seleccionar el icono individualmente-->
+                
+                <img src="build/img/icono1.svg" alt="icono seguridad" loading="lazy">
+                <h3>Seguridad</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil hic error molestias, voluptatum obcaecati recusandae! Numquam eligendi recusandae, similique a sunt quidem voluptas hic sint dicta cumque ex quo mollitia.</p>
+
+            </div>
+            <div class="icono"> <!--Para seleccionar el icono individualmente-->
+                
+                <img src="build/img/icono2.svg" alt="icono precio" loading="lazy">
+                <h3>Precio</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil hic error molestias, voluptatum obcaecati recusandae! Numquam eligendi recusandae, similique a sunt quidem voluptas hic sint dicta cumque ex quo mollitia.</p>
+
+            </div>
+            <div class="icono"> <!--Para seleccionar el icono individualmente-->
+                
+                <img src="build/img/icono2.svg" alt="icono tiempo" loading="lazy">
+                <h3>Tiempo</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil hic error molestias, voluptatum obcaecati recusandae! Numquam eligendi recusandae, similique a sunt quidem voluptas hic sint dicta cumque ex quo mollitia.</p>
+
+            </div>
+        </div>
+    </main>
+
+
+
+    <footer class="footer seccion">
+        <div class="contenedor contenedor-footer">
+            <nav class="navegacion">
+                <a href="nosotros.html">Nosotros</a>
+                <a href="anuncios.html">Anuncions</a>
+                <a href="blog.html">Blog</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+        </div>
+
+        <p class="copyright">
+            Todos los derechos Reservados 2021 - David Egas &copy;
+        </p>
+
+    </footer>
+
+    <script src="build/js/bundle.min.js"></script>
+</body>
+</html>
