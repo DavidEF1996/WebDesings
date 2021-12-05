@@ -1,15 +1,15 @@
 //usamos modernizer para ver si carga o no la imagen webp
 .no-webp .imagen-contacto {
-  background-image: url("../../../build/img/encuentra.jpg");
+  background-image: url("../../../AuxiliarImages/image.jpg");
 }
 .webp .imagen-contacto {
-  background-image: url("../../../build/img/encuentra.webp");
+  background-image: url("../../../AuxiliarImages/image.jpg");
 }
 
 .imagen-contacto {
   background-position: center center;
   background-size: cover;
-  padding: $separacion 0;
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,8 +19,22 @@
     font-weight: $black;
     color: $blanco;
   }
+  h3 {
+    font-size: 2rem;
+    font-weight: $black;
+    color: $blanco;
+  }
   p {
     font-size: 1.8rem;
     color: $blanco;
+  }
+  .imagen-contacto::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.25);
   }
 }

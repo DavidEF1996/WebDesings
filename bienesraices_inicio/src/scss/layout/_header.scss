@@ -1,10 +1,10 @@
 /**Esto es para que de acuerdo a si el navegador soporta use o no use imagenes webp**/
 .no-webp .inicio {
-  background-image: url(../../../build/img/header.jpg);
+  background-image: url(../../../AuxiliarImages/gifBoda2.gif);
 }
 
 .webp .inicio {
-  background-image: url(../../../build/img/header.jpg);
+  background-image: url(../../../AuxiliarImages/gifBoda2.gif);
 }
 
 .header {
@@ -39,6 +39,7 @@
     text-align: left; // manda el texto a la izquierda
     font-weight: $bold;
     line-height: 2;
-    max-width: 60rem; //para el salto de linea
+    text-align: right;
+    max-width: 100%; //para el salto de linea
   }
 }
