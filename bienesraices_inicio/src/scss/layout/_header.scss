@@ -27,6 +27,12 @@
       }
     }
   }
+  &.inicio2 {
+    background-position: center center; //imagen centrada horizontal y vertical
+    background-size: cover; //toma todo el espacio disponible
+
+    // como header e inicio estan al mismo nivel, con el & hacemos referencia a el mismo elemento
+  }
 }
 
 .contenido-header {
@@ -41,5 +47,17 @@
     line-height: 2;
     text-align: right;
     max-width: 100%; //para el salto de linea
+  }
+}
+
+.contenedor-horarios {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+
+  .tabla {
+    table {
+      margin: 0 auto;
+    }
   }
 }

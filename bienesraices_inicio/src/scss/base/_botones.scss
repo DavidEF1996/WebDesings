@@ -9,3 +9,7 @@
 .boton-verder {
   @include boton($verde, inline-block);
 }
+
+.boton-ocultar {
+  @include botonPequeno($amarillo, inline-block);
+}

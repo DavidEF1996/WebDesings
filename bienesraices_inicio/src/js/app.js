@@ -1,8 +1,35 @@
+const contacto = document.querySelector(".imagen-contacto");
+const botonOcultar = document.querySelector(".botonOcultar");
+const botonMostrar = document.querySelector(".botonMostrar");
+const tablaOcultar = document.querySelector("#tabla");
+
+botonOcultar.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  tablaOcultar.style.display = "none";
+  botonOcultar.style.display = "none";
+  botonMostrar.style.display = "block";
+});
+
+botonMostrar.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  tablaOcultar.style.display = "inline";
+  botonOcultar.style.display = "block";
+  botonMostrar.style.display = "none";
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   //Este es el evento principal, aplicara todas las funciones js cuando el documento
   //haya cargado toddos los html, css, etc
 
   eventListeners();
+  try {
+    tablaHorarios();
+    botonOcultar.style.display = "none";
+    tablaOcultar.style.display = "none";
+  } catch (error) {}
+
   //  darkMode();
 });
 
@@ -50,4 +77,38 @@ function darkMode() {
   variableDark.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
   });
+}
+
+function tablaHorarios() {
+  const tabla = document.querySelector("#tabla");
+  console.log(tabla.rows[0].cells[1].innerText);
+
+  console.log(new Date(new Date()).getDay());
+
+  for (let index = 0; index < 6; index++) {
+    if (new Date(new Date()).getDay() == 0) {
+      tabla.rows[0].cells[1].style.color = "red";
+    } else if (new Date(new Date()).getDay() == 1) {
+      tabla.rows[1].cells[1].style.color = "red";
+    } else if (new Date(new Date()).getDay() == 2) {
+      tabla.rows[2].cells[1].style.color = "red";
+    } else if (new Date(new Date()).getDay() == 3) {
+      tabla.rows[3].cells[1].style.color = "red";
+    } else if (new Date(new Date()).getDay() == 4) {
+      tabla.rows[4].cells[1].style.color = "red";
+    } else if (new Date(new Date()).getDay() == 5) {
+      tabla.rows[5].cells[1].style.color = "red";
+    } else {
+      tabla.rows[6].cells[1].style.color = "red";
+    }
+  }
+  /*for (var i = 0, row; (row = tabla.rows[i]); i++) {
+    //iterate through rows
+    //rows would be accessed using the "row" variable assigned in the for loop
+    for (var j = 0, col; (col = row.cells[0]); j++) {
+      //iterate through columns
+      console.log("----------");
+      console.log(row.cells[i].innerText);
+    }
+  }*/
 }

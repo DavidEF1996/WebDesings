@@ -41,3 +41,23 @@
     cursor: pointer;
   }
 }
+
+@mixin botonPequeno($bgColor, $display) {
+  background-color: $bgColor;
+  color: $blanco;
+  font-weight: $bold;
+  text-decoration: none;
+  padding: 1rem 1rem;
+  text-align: center;
+
+  display: $display;
+  border: none;
+
+  &:hover {
+    background-color: darken(
+      $bgColor,
+      5
+    ); // da el efecto oscuro cuando nos posicionamos en un boton
+    cursor: pointer;
+  }
+}

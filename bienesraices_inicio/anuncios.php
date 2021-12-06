@@ -1,42 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Bienes Raices</title>
-    <link href="build/css/app.css" rel="stylesheet">
-</head>
-<body>
+<?php
+require 'includes/funciones.php';
+  
+incluirTemplate('header');  
 
-    <header class="header"> <!--Este header es el principal de la navegacion, aqui va la imagen de fondo-->
-        <div class="contenedor contenido-header"> <!--Este div es para centrar dentro del header y contenido ya esta creada
-            en los globales, y tiene otra contenido-header para darle estilos individuales-->
-
-            <div class="barra"> <!--Este div contiene la barra de navegacion-->
-                    <a href="index.html"> <!--Se considera un estandar que al dar click a la imagen lleve a la  pagina principal, entonces si damos click va a ir a la pagina principal-->
-                        <img src="build/img/logo.svg" alt="logotipo"> <!--Imagen de fondo y svg es buena opcion-->
-                    </a>
-
-                    <div class="mobile-menu"> <!--Este esera el menu de tipo hamburguesa-->
-                        <img src="build/img/barras.svg" alt="iconohamburguesa">
-                    </div>
-
-                    <div class="derecha">
-
-                        <img class="dark-mode-boton" src="build/img/dark-mode.svg">
-                        <nav class="navegacion">
-                            <a href="nosotros.html">Nosotros</a>
-                            <a href="anuncios.html">Anuncions</a>
-                            <a href="blog.html">Blog</a>
-                            <a href="contacto.html">Contacto</a>
-                        </nav>
-
-                    </div>
-            </div>
-            
-                </div>
-    </header>
+?>
     
     <main class="contenedor seccion"> <!--Se crea el contenedor principal y usamos seccion para tener margin y padding, este esta creado en utilidades-->
         <section class="seccion contenedor"> <!--contiene todos los elementos de esta seccion-->
@@ -68,7 +35,7 @@
                             </li>
                         </ul>
     
-                        <a href="anuncio.html" class="boton-amarillo-block">
+                        <a href="anuncio.php" class="boton-amarillo-block">
                             Ver Propiedad <!--El enlace al anuncio-->
                         </a>
                     </div>
@@ -99,7 +66,7 @@
                             </li>
                         </ul>
     
-                        <a href="anuncio.html" class="boton-amarillo-block">
+                        <a href="anuncio.php" class="boton-amarillo-block">
                             Ver Propiedad <!--El enlace al anuncio-->
                         </a>
                     </div>
@@ -130,7 +97,7 @@
                             </li>
                         </ul>
     
-                        <a href="anuncio.html" class="boton-amarillo-block">
+                        <a href="anuncio.php" class="boton-amarillo-block">
                             Ver Propiedad <!--El enlace al anuncio-->
                         </a>
                     </div>
@@ -160,7 +127,7 @@
                             </li>
                         </ul>
     
-                        <a href="anuncio.html" class="boton-amarillo-block">
+                        <a href="anuncio.php" class="boton-amarillo-block">
                             Ver Propiedad <!--El enlace al anuncio-->
                         </a>
                     </div>
@@ -190,7 +157,7 @@
                             </li>
                         </ul>
     
-                        <a href="anuncio.html" class="boton-amarillo-block">
+                        <a href="anuncio.php" class="boton-amarillo-block">
                             Ver Propiedad <!--El enlace al anuncio-->
                         </a>
                     </div>
@@ -220,7 +187,7 @@
                             </li>
                         </ul>
     
-                        <a href="anuncio.html" class="boton-amarillo-block">
+                        <a href="anuncio.php" class="boton-amarillo-block">
                             Ver Propiedad <!--El enlace al anuncio-->
                         </a>
                     </div>
@@ -232,22 +199,7 @@
 
 
 
-    <footer class="footer seccion">
-        <div class="contenedor contenedor-footer">
-            <nav class="navegacion">
-                <a href="nosotros.html">Nosotros</a>
-                <a href="anuncios.html">Anuncions</a>
-                <a href="blog.html">Blog</a>
-                <a href="contacto.html">Contacto</a>
-            </nav>
-        </div>
+    <?php
+ incluirTemplate('footer');  
 
-        <p class="copyright">
-            Todos los derechos Reservados 2021 - David Egas &copy;
-        </p>
-
-    </footer>
-
-    <script src="build/js/bundle.min.js"></script>
-</body>
-</html>
+?>

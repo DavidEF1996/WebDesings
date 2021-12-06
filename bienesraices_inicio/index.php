@@ -1,46 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Proyecto Bienes Raices</title>
-    <link href="build/css/app.css" rel="stylesheet" />
-  </head>
-  <body>
-    <header class="header inicio">
-      <!--Este header es el principal de la navegacion, aqui va la imagen de fondo-->
-      <div class="contenedor contenido-header">
-        <!--Este div es para centrar dentro del header y contenido ya esta creada
-            en los globales, y tiene otra contenido-header para darle estilos individuales-->
+<?php
+require 'includes/funciones.php';
+  
+incluirTemplate('header', $inicio=true);  
 
-        <div class="barra">
-          <!--Este div contiene la barra de navegacion-->
-          <a href="index.html">
-            <!--Se considera un estandar que al dar click a la imagen lleve a la  pagina principal, entonces si damos click va a ir a la pagina principal-->
-            <p>HM EVENTOS</p>
-            <!--Imagen de fondo y svg es buena opcion-->
-          </a>
-
-          <div class="mobile-menu">
-            <!--Este esera el menu de tipo hamburguesa-->
-            <img src="build/img/barras.svg" alt="iconohamburguesa" />
-          </div>
-
-          <div class="derecha">
-            <nav class="navegacion">
-              <a href="nosotros.html">Nosotros</a>
-              <a href="anuncios.html">Anuncions</a>
-              <a href="blog.html">Blog</a>
-              <a href="contacto.html">Contacto</a>
-            </nav>
-            <!--<img class="dark-mode-boton" src="build/img/dark-mode.svg" /> -->
-          </div>
-        </div>
-
-        <h1>Bienvenido a HM EVENTOS</h1>
-      </div>
-    </header>
+?>
 
     <main class="contenedor seccion">
       <!--Se crea el contenedor principal y usamos seccion para tener margin y padding, este esta creado en utilidades-->
@@ -100,7 +63,7 @@
             <p class="precio">$200</p>
             <!--Se le agrega una clase para darle estilo diferente a este p-->
 
-            <a href="anuncio.html" class="boton-amarillo-block">
+            <a href="anuncio.php" class="boton-amarillo-block">
               Ver
               <!--El enlace al anuncio-->
             </a>
@@ -122,7 +85,7 @@
             <p class="precio">$50</p>
             <!--Se le agrega una clase para darle estilo diferente a este p-->
 
-            <a href="anuncio.html" class="boton-amarillo-block">
+            <a href="anuncio.php" class="boton-amarillo-block">
               Ver
               <!--El enlace al anuncio-->
             </a>
@@ -144,7 +107,7 @@
             <p class="precio">$50</p>
             <!--Se le agrega una clase para darle estilo diferente a este p-->
 
-            <a href="anuncio.html" class="boton-amarillo-block">
+            <a href="anuncio.php" class="boton-amarillo-block">
               Ver
               <!--El enlace al anuncio-->
             </a>
@@ -157,37 +120,57 @@
       </div>
     </section>
 
+
     <section class="imagen-contacto">
-        <br></br>
-        <br></br>
-        <br></br>
+   
       <h2>Porque en tu sueño cada detalle cuenta.</h2>
       <p>
         Comunicate con nostros ahora!!
       </p>
-      <a href="contacto.html" class="boton-amarillo">Contactanos</a>
+      <a href="contacto.php" class="boton-amarillo">Contactanos</a>
 
       <h3>O, aún mejor, ¡ven a visitarnos!</h3>
       <p>Av. los Andes y calle Cajas.</p>
     </section>
 
  
-
-    <footer class="footer seccion">
-      <div class="contenedor contenedor-footer">
-        <nav class="navegacion">
-          <a href="nosotros.html">Nosotros</a>
-          <a href="anuncios.html">Anuncions</a>
-          <a href="blog.html">Blog</a>
-          <a href="contacto.html">Contacto</a>
-        </nav>
+    <div class=" contenedor contenedor-horarios">
+      <h2>HORARIOS DE ATENCIÓN</h2>
+      <div class="alinear-derecha ocultar">
+        <a href="#" class="boton boton-ocultar botonMostrar"> 🔽 </a>
       </div>
+    <div class="tabla">
+      
+      <table id="tabla" >
+        <TR><TH>Lunes</TH>
+          <TD>08:00 am - 08:00 pm</TD> </TR>
+        <TR><TH>Martes</TH>
+          <TD>08:00 am - 08:00 pm</TD></TR>
+        <TR><TH>Miercoles</TH>
+          <TD>08:00 am - 08:00 pm</TD></TR>
+          <TR><TH>Jueves</TH>
+            <TD>08:00 am - 08:00 pm</TD></TR>
+            <TR><TH>Viernes</TH>
+              <TD>08:00 am - 08:00 pm</TD></TR>
+              <TR><TH>Sábado</TH>
+                <TD>Cerrado</TD></TR>
+                <TR><TH>Domingo</TH>
+                  <TD>Cerrado</TD></TR>
 
-      <p class="copyright">
-        Todos los derechos Reservados 2021 - Copyright &copy; 2021 HM EVENTOS 
-      </p>
-    </footer>
+      </table>
 
-    <script src="build/js/bundle.min.js"></script>
-  </body>
-</html>
+      <div class="alinear-derecha ocultar">
+        <a href="#" class="boton boton-ocultar botonOcultar"> 🔼 </a>
+      </div>
+    </div>
+  
+    </div>
+
+    <?php
+
+incluirTemplate('footer');
+
+  
+
+?>
+
