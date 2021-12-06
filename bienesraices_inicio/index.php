@@ -46,74 +46,13 @@ incluirTemplate('header', $inicio=true);
       <!--contiene todos los elementos de esta seccion-->
       <h2>DECORACIÓN PARA TODO EVENTO</h2>
 
-      <div class="contenedor-anuncios">
-        <!--Contenedor para alinear los elementos tarjeta-->
-        <div class="anuncio">
-          <!--Para dar estilo a la tarjeta individual-->
-          <picture>
-            <!--Esta propiedad permite cargar imagenes en diferente formato segun soporte el navegador-->
-            <source srcset="AuxiliarImages/foto1.jfif" type="image/webp" />
-            <source srcset="build/img/anuncio1.jpg" type="image/jpg" />
-            <img loading="lazy" src="build/img/anuncio1.jpg" alt="anuncio" />
-          </picture>
-          <div class="contenido-anuncio">
-            <!--Contenedor para dar padding y color de fondo al texto de la tarjeta-->
-            <h3>ORGANIZACIÓN TOTAL DE TUS EVENTOS</h3>
-
-            <p class="precio">$200</p>
-            <!--Se le agrega una clase para darle estilo diferente a este p-->
-
-            <a href="anuncio.php" class="boton-amarillo-block">
-              Ver
-              <!--El enlace al anuncio-->
-            </a>
-          </div>
-        </div>
-
-        <div class="anuncio">
-          <!--Para dar estilo a la tarjeta individual-->
-          <picture>
-            <!--Esta propiedad permite cargar imagenes en diferente formato segun soporte el navegador-->
-            <source srcset="AuxiliarImages/foto2.jfif" type="image/webp" />
-            <source srcset="build/img/anuncio2.jpg" type="image/jpg" />
-            <img loading="lazy" src="build/img/anuncio2.jpg" alt="anuncio" />
-          </picture>
-          <div class="contenido-anuncio">
-            <!--Contenedor para dar padding y color de fondo al texto de la tarjeta-->
-            <h3>TODO TIPO DE MANTELERIA</h3>
-
-            <p class="precio">$50</p>
-            <!--Se le agrega una clase para darle estilo diferente a este p-->
-
-            <a href="anuncio.php" class="boton-amarillo-block">
-              Ver
-              <!--El enlace al anuncio-->
-            </a>
-          </div>
-        </div>
-
-        <div class="anuncio">
-          <!--Para dar estilo a la tarjeta individual-->
-          <picture>
-            <!--Esta propiedad permite cargar imagenes en diferente formato segun soporte el navegador-->
-            <source srcset="AuxiliarImages/foto3.jfif" type="image/webp" />
-            <source srcset="build/img/anuncio3.jpg" type="image/jpg" />
-            <img loading="lazy" src="build/img/anuncio3.jpg" alt="anuncio" />
-          </picture>
-          <div class="contenido-anuncio">
-            <!--Contenedor para dar padding y color de fondo al texto de la tarjeta-->
-            <h3>PASTELERÍA <br></br>  </h3>
-
-            <p class="precio">$50</p>
-            <!--Se le agrega una clase para darle estilo diferente a este p-->
-
-            <a href="anuncio.php" class="boton-amarillo-block">
-              Ver
-              <!--El enlace al anuncio-->
-            </a>
-          </div>
-        </div>
+   <?php 
+     $limite = 3;
+   include 'includes/templates/anuncios.php';
+ 
+   ?>
       </div>
+
       <!--Boton para ver todas-->
       <div class="alinear-derecha">
         <a href="#" class="boton boton-verder"> Ver todos los productos </a>

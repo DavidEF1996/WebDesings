@@ -3,32 +3,35 @@ const botonOcultar = document.querySelector(".botonOcultar");
 const botonMostrar = document.querySelector(".botonMostrar");
 const tablaOcultar = document.querySelector("#tabla");
 
-botonOcultar.addEventListener("click", (e) => {
-  e.preventDefault();
+if (botonMostrar != null && botonOcultar != null) {
+  botonOcultar.addEventListener("click", (e) => {
+    e.preventDefault();
 
-  tablaOcultar.style.display = "none";
-  botonOcultar.style.display = "none";
-  botonMostrar.style.display = "block";
-});
+    tablaOcultar.style.display = "none";
+    botonOcultar.style.display = "none";
+    botonMostrar.style.display = "block";
+  });
 
-botonMostrar.addEventListener("click", (e) => {
-  e.preventDefault();
+  botonMostrar.addEventListener("click", (e) => {
+    e.preventDefault();
 
-  tablaOcultar.style.display = "inline";
-  botonOcultar.style.display = "block";
-  botonMostrar.style.display = "none";
-});
+    tablaOcultar.style.display = "inline";
+    botonOcultar.style.display = "block";
+    botonMostrar.style.display = "none";
+  });
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   //Este es el evento principal, aplicara todas las funciones js cuando el documento
   //haya cargado toddos los html, css, etc
 
   eventListeners();
-  try {
+
+  if ((botonOcultar != null) & (botonMostrar != null)) {
     tablaHorarios();
     botonOcultar.style.display = "none";
     tablaOcultar.style.display = "none";
-  } catch (error) {}
+  }
 
   //  darkMode();
 });
@@ -44,6 +47,7 @@ function eventListeners() {
 }
 
 function navegacionResponsive() {
+  console.log("doy click");
   const navegacion = document.querySelector(".navegacion"); //obtenemos ahora el menu de navegacion
 
   if (navegacion.classList.contains("mostrar")) {

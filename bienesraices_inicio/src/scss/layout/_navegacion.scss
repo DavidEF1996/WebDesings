@@ -20,6 +20,14 @@
   flex-direction: column;
 
   align-items: center;
+  p {
+    font-size: 4rem;
+    color: $blanco;
+    font-weight: $bold;
+    width: 100%;
+    height: 5%;
+    display: inline;
+  }
 
   @include telefono {
     flex-direction: row;

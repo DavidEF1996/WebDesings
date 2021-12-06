@@ -1,6 +1,7 @@
 @include telefono {
   .contenedor-anuncios {
     @include grid(3, 2rem);
+
     //Cuando la pantalla sea mas grande que un telefono
     //se aplica este mixin de 3 columnas con separacion de 2rem
   }
@@ -26,4 +27,41 @@
   color: $verde;
   font-weight: $bold;
   font-size: 3rem;
+}
+#galeria,
+#galeria * {
+  align-items: center;
+  box-sizing: border-box;
+}
+#galeria {
+  border: 1px solid #eaeaea; /* Borde de la galería */
+  padding: 10px;
+  padding-bottom: 0;
+  background: white; /* Fondo de la galería */
+  width: 100%;
+
+  #galeria_miniaturas {
+    display: table;
+    margin: 0 auto;
+  }
+  #imgGaleria {
+    border: 1px solid #f2f2f2; /* Borde de la imagen */
+    padding: 3px;
+    width: x; /* Ancho de la imagen */
+    height: x; /* Alto de la imagen */
+  }
+  .miniatura {
+    width: 10rem; /* Ancho de las miniaturas */
+    height: 10rem; /* Alto de las miniaturas */
+    float: left;
+    cursor: pointer;
+    padding: 5px;
+    margin: 10px 5px;
+  }
+  .miniatura:hover {
+    opacity: 0.8; /* Opacidad */
+  }
+  .miniatura:active {
+    opacity: 1;
+  } /* Ancho de la galería */
 }
