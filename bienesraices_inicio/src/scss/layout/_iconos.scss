@@ -1,5 +1,5 @@
 .iconos-nosotros {
-  @include telefono {
+  @include tablet {
     display: grid;
     grid-template-columns: 1fr;
     column-gap: 2rem;

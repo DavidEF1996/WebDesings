@@ -11,5 +11,5 @@
 }
 
 .boton-ocultar {
-  @include botonPequeno($amarillo, inline-block);
+  @include botonPequeno($amarillo, block);
 }

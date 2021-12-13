@@ -14,6 +14,10 @@ incluirTemplate('header', $inicio=true);
           <picture>
             <source srcset="AuxiliarImages/chica.jfif" type="image/webp" />
             <source srcset="AuxiliarImages/chica.jfif" type="image/jpg" />
+            <h2>
+            RESPALDADOS POR PATRICIA RIOS "LA LEONA" Y HERMEL MENDOZA "LOCUTORES
+            PROFESIONALES
+          </h2>
             <img
               loading="lazy"
               src="build/img/nosotros.jpg"
@@ -22,11 +26,8 @@ incluirTemplate('header', $inicio=true);
           </picture>
         </div>
 
-        <div class="">
-          <h4>
-            RESPALDADOS POR PATRICIA RIOS "LA LEONA" Y HERMEL MENDOZA "LOCUTORES
-            PROFESIONALES
-          </h4>
+        <div class="texto-nosotros">
+        
           <blockquote class="texto-nosotros">
             Respaldados por una trayectoria de 15 años HM-EVENTOS ofrece
             Asesoría Integral para la Organización de Eventos Sociales y
@@ -44,7 +45,7 @@ incluirTemplate('header', $inicio=true);
 
     <section class="seccion contenedor">
       <!--contiene todos los elementos de esta seccion-->
-      <h2>DECORACIÓN PARA TODO EVENTO</h2>
+      <h1>DECORACIÓN PARA TODO EVENTO</h1>
 
    <?php 
      $limite = 3;
@@ -53,10 +54,7 @@ incluirTemplate('header', $inicio=true);
    ?>
       </div>
 
-      <!--Boton para ver todas-->
-      <div class="alinear-derecha">
-        <a href="#" class="boton boton-verder"> Ver todos los productos </a>
-      </div>
+
     </section>
 
 
@@ -74,9 +72,9 @@ incluirTemplate('header', $inicio=true);
 
  
     <div class=" contenedor contenedor-horarios">
-      <h2>HORARIOS DE ATENCIÓN</h2>
-      <div class="alinear-derecha ocultar">
-        <a href="#" class="boton boton-ocultar botonMostrar"> 🔽 </a>
+      <h1>HORARIOS DE ATENCIÓN</h1>
+      <div class="alinear-centro ocultar">
+        <a href="#" class="boton boton-ocultar botonMostrar"> Desplegar </a>
       </div>
     <div class="tabla">
       
@@ -98,8 +96,8 @@ incluirTemplate('header', $inicio=true);
 
       </table>
 
-      <div class="alinear-derecha ocultar">
-        <a href="#" class="boton boton-ocultar botonOcultar"> 🔼 </a>
+      <div class="alinear-centro ocultar">
+        <a href="#" class="boton boton-ocultar botonOcultar"> Ocultar </a>
       </div>
     </div>
   

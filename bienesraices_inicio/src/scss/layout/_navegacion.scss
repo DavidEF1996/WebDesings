@@ -1,11 +1,12 @@
 .derecha {
   display: flex;
-  flex-direction: row;
+
   align-items: center;
-  gap: 2rem;
-  align-items: flex-start;
-  @include telefono {
+  justify-content: center;
+
+  @include tablet {
     align-items: center;
+    justify-content: center;
   }
 
   .dark-mode-boton {
@@ -24,29 +25,28 @@
     font-size: 4rem;
     color: $blanco;
     font-weight: $bold;
-    width: 100%;
-    height: 5%;
+    width: 30rem;
     display: inline;
   }
 
-  @include telefono {
+  @include tablet {
     flex-direction: row;
-    justify-content: space-between;
+    gap: 2rem;
     align-items: center;
-    align-items: flex-end;
+    justify-content: center;
 
     p {
       font-size: 5rem;
       color: $blanco;
       font-weight: $bold;
-      width: 100%;
-      height: 5%;
+
       display: inline;
     }
   }
 }
 
 .navegacion {
+  margin-left: 0px;
   //display: none; //no se muestra el menu de navegacion en pantallas pequeñas
 
   //para animar el ocultamiento del menu usamos el siguiente codigo que reemplaza el de arriba
@@ -56,7 +56,8 @@
   transition: visibility 0.3s ease-in-out, opacity 0.5s linear,
     heigh 0.5s linear; //damos animacion a las transiciones
 
-  @include telefono {
+  @include tablet {
+    margin-left: 35rem;
     //si agrandamos la ventana con el menu oculto, este no se vera por eso agregamos aqui tambien opacity y visibility
     opacity: 1;
     visibility: visible;
@@ -69,7 +70,7 @@
     display: block; //todo el ancho disponible
     text-align: center;
 
-    @include telefono {
+    @include tablet {
       margin-right: 2rem;
 
       //eliminar el margin del ultimo elemento
@@ -82,7 +83,7 @@
 
 //menu hamburguesa
 .mobile-menu {
-  @include telefono {
+  @include tablet {
     display: none;
   }
   img {

@@ -8,8 +8,10 @@
     <link href="/build/css/app.css" rel="stylesheet" />
   </head>
   <body>
-    <header class="header <?php echo $inicio ?'inicio':''; ?> inicio2">
+    <header class="header <?php echo $inicio ?'inicio transicion fadeIn':''; ?> ">
       <!--Este header es el principal de la navegacion, aqui va la imagen de fondo-->
+    
+
       <div class="contenedor contenido-header">
         <!--Este div es para centrar dentro del header y contenido ya esta creada
             en los globales, y tiene otra contenido-header para darle estilos individuales-->
@@ -27,16 +29,64 @@
             <img src="/build/img/barras.svg" alt="iconohamburguesa" />
           </div>
 
+        
           <div class="derecha">
+
             <nav class="navegacion">
+          
+
               <a href="nosotros.php">Nosotros</a>
               <a href="anuncios.php">Anuncions</a>
               <a href="blog.php">Blog</a>
               <a href="contacto.php">Contacto</a>
+            
+        
             </nav>
+            
+            
+   
+          </div>
+          <div class="rowC">
+       
+       <div class="car">
+         <ul>
+           <li class="submenu">
+           <img src="/build/img/iconoCompras.svg" id="img-carrito" class="imagenCarrito" />
+             <div id="carrito">
+               <table id="lista-carrito" class="u-full-width">
+                 <thead>
+                   <tr>
+                     <th>Imagen</th>
+                     <th>Nombre</th>
+                     <th>Precio</th>
+                     <th>Cantidad</th>
+                     <th></th>
+                   </tr>
+                 </thead>
+                 <tbody></tbody>
+               </table>
+
+               <a href="#" id="vaciar-carrito" class="button u-full-width"
+                 >Vaciar Carrito</a
+               >
+             </div>
+           </li>
+         </ul>
+       </div>
+     </div>
+
+  
+     
+            
             <!--<img class="dark-mode-boton" src="build/img/dark-mode.svg" /> -->
           </div>
-        </div>
+       
+
+        
+       
+
+
+
 
         <?php if($inicio):?> 
         <h1>Bienvenido a HM EVENTOS</h1>

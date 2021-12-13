@@ -2,6 +2,8 @@ const contacto = document.querySelector(".imagen-contacto");
 const botonOcultar = document.querySelector(".botonOcultar");
 const botonMostrar = document.querySelector(".botonMostrar");
 const tablaOcultar = document.querySelector("#tabla");
+var image = document.querySelector(".transicion");
+var img = 1;
 
 if (botonMostrar != null && botonOcultar != null) {
   botonOcultar.addEventListener("click", (e) => {
@@ -25,10 +27,13 @@ document.addEventListener("DOMContentLoaded", function () {
   //Este es el evento principal, aplicara todas las funciones js cuando el documento
   //haya cargado toddos los html, css, etc
 
+  window.setInterval(changeImage, 5000);
+
   eventListeners();
 
   if ((botonOcultar != null) & (botonMostrar != null)) {
     tablaHorarios();
+
     botonOcultar.style.display = "none";
     tablaOcultar.style.display = "none";
   }
@@ -45,9 +50,41 @@ function eventListeners() {
     navegacionResponsive();
   });
 }
+/*var a = 0;
+function cambiarFondo() {
+  const fondo = document.querySelector(".inicio");
+  console.log("doy click" + a);
+  a = a % 2;
+
+  if (a == 1) {
+    fondo.style.backgroundImage = "url(../../AuxiliarImages/gifBoda.gif)";
+  } else {
+    fondo.style.backgroundImage = "url(../../AuxiliarImages/gifBoda2.gif)";
+  }
+  a++;
+}
+
+function repetir() {
+  setInterval(() => {
+    cambiarFondo();
+  }, 10000);
+}*/
+
+function changeImage() {
+  console.log("llego " + img);
+  image.classList.remove("fadeIn");
+
+  image.style.backgroundImage = "url(../../AuxiliarImages/" + img + ".gif)";
+
+  img++;
+  if (img == 3) {
+    img = 1;
+  }
+  void image.offsetHeight;
+  image.classList.add("fadeIn");
+}
 
 function navegacionResponsive() {
-  console.log("doy click");
   const navegacion = document.querySelector(".navegacion"); //obtenemos ahora el menu de navegacion
 
   if (navegacion.classList.contains("mostrar")) {
@@ -90,17 +127,17 @@ function tablaHorarios() {
   console.log(new Date(new Date()).getDay());
 
   for (let index = 0; index < 6; index++) {
-    if (new Date(new Date()).getDay() == 0) {
+    if (new Date(new Date()).getDay() == 1) {
       tabla.rows[0].cells[1].style.color = "red";
-    } else if (new Date(new Date()).getDay() == 1) {
-      tabla.rows[1].cells[1].style.color = "red";
     } else if (new Date(new Date()).getDay() == 2) {
-      tabla.rows[2].cells[1].style.color = "red";
+      tabla.rows[1].cells[1].style.color = "red";
     } else if (new Date(new Date()).getDay() == 3) {
-      tabla.rows[3].cells[1].style.color = "red";
+      tabla.rows[2].cells[1].style.color = "red";
     } else if (new Date(new Date()).getDay() == 4) {
-      tabla.rows[4].cells[1].style.color = "red";
+      tabla.rows[3].cells[1].style.color = "red";
     } else if (new Date(new Date()).getDay() == 5) {
+      tabla.rows[4].cells[1].style.color = "red";
+    } else if (new Date(new Date()).getDay() == 6) {
       tabla.rows[5].cells[1].style.color = "red";
     } else {
       tabla.rows[6].cells[1].style.color = "red";

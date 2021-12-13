@@ -25,7 +25,7 @@ $resultado = mysqli_query($db,$query);
             <!--Contenedor para dar padding y color de fondo al texto de la tarjeta-->
             <h3><?php echo $propiedad['tituloPropiedades']?></h3>
 
-            <p class="precio">$<?php echo $propiedad['precioPropiedades'] ?></p>
+          
             <!--Se le agrega una clase para darle estilo diferente a este p-->
 
             <a href="anuncio.php?id=<?php echo $propiedad['idPropiedades'] ?>" class="boton-amarillo-block">

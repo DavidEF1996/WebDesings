@@ -1,10 +1,28 @@
 /**Esto es para que de acuerdo a si el navegador soporta use o no use imagenes webp**/
 .no-webp .inicio {
-  background-image: url(../../../AuxiliarImages/gifBoda2.gif);
+  background-image: url(../../../AuxiliarImages/2.gif);
 }
 
 .webp .inicio {
-  background-image: url(../../../AuxiliarImages/gifBoda2.gif);
+  background-image: url(../../../AuxiliarImages/2.gif);
+}
+
+#slideshow-home {
+  width: 100%;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+  0% {
+    opacity: 0.5;
+  }
+}
+
+.fadeIn {
+  animation: fadeIn 4s both;
 }
 
 .header {
@@ -16,13 +34,13 @@
     background-size: cover; //toma todo el espacio disponible
 
     // como header e inicio estan al mismo nivel, con el & hacemos referencia a el mismo elemento
-    @include telefono {
+    @include tablet {
       min-height: 70rem;
     }
 
     .contenido-header {
       // cuando inicio existe aplica el 70rem para que llene todo el espacio para la imagen
-      @include telefono {
+      @include tablet {
         min-height: 70rem; // para que llene todo el espacio de la imagen el contendio-header
       }
     }

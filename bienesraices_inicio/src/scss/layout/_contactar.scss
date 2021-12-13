@@ -1,12 +1,13 @@
 //usamos modernizer para ver si carga o no la imagen webp
 .no-webp .imagen-contacto {
-  background-image: url("../../../AuxiliarImages/image.jpg");
+  background-image: url("../../../AuxiliarImages/imagenOscurecida.jpg");
 }
 .webp .imagen-contacto {
-  background-image: url("../../../AuxiliarImages/image.jpg");
+  background-image: url("../../../AuxiliarImages/imagenOscurecida.jpg");
 }
 
 .imagen-contacto {
+  margin-bottom: 5rem;
   background-position: center center;
   background-size: cover;
 
