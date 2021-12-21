@@ -38,7 +38,7 @@ incluirTemplate('header');
  <div id="galeria_imagen">
  <img id="imgGaleria" src="build/img/anuncio1.webp" /></div>
  <div id="galeria_miniaturas">
- <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria').src=this.src;" src="build/img/anuncio1.webp" />
+ <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria').src=this.src;" src="/AuxiliarImages/logoHM.gif" />
  <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria').src=this.src;" src="build/img/anuncio2.webp" />
  <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria').src=this.src;" src="build/img/anuncio3.webp" />
  </div>
