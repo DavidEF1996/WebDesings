@@ -28,7 +28,7 @@ incluirTemplate('header');
 
 ?>
     
-    <div class="contenedor-anuncios contenedor "> <!--Se crea el contenedor principal y usamos seccion para tener margin y padding, este esta creado en utilidades-->
+    <div class="contenedor-anuncios contenedor productos "> <!--Se crea el contenedor principal y usamos seccion para tener margin y padding, este esta creado en utilidades-->
     
         
       <?php while ($propiedad = mysqli_fetch_assoc($resultado)): ?>
@@ -43,17 +43,23 @@ incluirTemplate('header');
 
             <div id="galeria">
  <div id="galeria_imagen">
- <img id="imgGaleria <?php echo $contador ?>" src="build/img/anuncio1.webp" /></div>
+ <img id="imgGaleria <?php echo $contador ?>" class="imagePrincipal" src="build/img/anuncio1.webp" /></div>
  <div id="galeria_miniaturas">
  <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria <?php echo $contador ?>').src=this.src;" src="build/img/anuncio1.webp" />
  <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria <?php echo $contador ?>').src=this.src;" src="build/img/anuncio2.webp" />
  <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria <?php echo $contador ?>').src=this.src;" src="build/img/anuncio3.webp" />
  </div>
  </div>
-            <p class="precio">$<?php echo $propiedad['precio_lic']?></p>
+      <!--      <p class="precio">$<?php // echo $propiedad['precio_lic']?></p>--> 
            
-            <p><?php echo $propiedad['precio_lic'] ?> </p>
+            <p>Aquí va una descripción del producto </p>
+            <a
+                href="#"
+                class="u-full-width button-primary button input agregar-carrito"
+                data-id=<?php echo $propiedad['id_lic'] ?>
+                >Agregar Al Carrito</a>
         </div>
+        
         <?php $contador++; ?>
         <?php endwhile ?>
       </div>
