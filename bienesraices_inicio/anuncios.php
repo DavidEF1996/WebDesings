@@ -10,7 +10,7 @@ incluirTemplate('header');
 
     <di>
 
-    <div id="carrito">
+    <div id="carrito" class="table-responsive">
                   <table id="lista-carrito" class="u-full-width">
                     <thead>
                       <tr>

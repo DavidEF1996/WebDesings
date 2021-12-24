@@ -35,10 +35,11 @@
             <nav class="navegacion">
           
 
-              <a href="nosotros.php">Nosotros</a>
-              <a href="anuncios.php">Anuncions</a>
-              <a href="blog.php">Blog</a>
-              <a href="contacto.php">Contacto</a>
+              <a href="#">Productos</a>
+             
+           
+              <a href="#">Contacto</a>
+              <a href="anuncios.php">Carrito</a>
             
         
             </nav>

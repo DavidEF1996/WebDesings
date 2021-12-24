@@ -1,19 +1,27 @@
 const listaProductos = document.querySelector(".productos");
 const contenedorCarrito = document.querySelector("#lista-carrito tbody");
+const carrito = document.querySelector("#carrito");
 let arregloProductos = [];
 
 principal();
 function principal() {
+  carrito.addEventListener("click", EliminarProducto);
   document.addEventListener("DOMContentLoaded", () => {
     console.log("me estoy iniciando");
     arregloProductos = JSON.parse(localStorage.getItem("produ")) || [];
     console.log(arregloProductos);
     if (contenedorCarrito) {
+      limpiar();
       crearFilaCarrito();
     }
+    /* limpiar();
+    crearFilaCarrito();*/
   });
-  if (contenedorCarrito && listaProductos) {
+  if (listaProductos) {
+    console.log("Existen");
     listaProductos.addEventListener("click", extraer);
+  } else {
+    console.log("No existen");
   }
 }
 
@@ -55,10 +63,8 @@ function datos(valores) {
 
   console.log(arregloProductos);
 
-  if (contenedorCarrito) {
-    almacenarMemoria();
-    crearFilaCarrito(arregloProductos);
-  }
+  almacenarMemoria();
+  crearFilaCarrito(arregloProductos);
 }
 
 function crearFilaCarrito() {
@@ -80,6 +86,43 @@ function crearFilaCarrito() {
   });
 }
 
+function EliminarProducto(e) {
+  limpiar();
+  e.stopPropagation();
+  let arre = [];
+  if (e.target.classList.contains("borrar-curso")) {
+    const aux = e.target.getAttribute("data-id");
+    const nuevo = arregloProductos.map((produ) => {
+      if (produ.id === aux && produ.cantidad > 1) {
+        produ.cantidad--;
+        arre = [...arre, produ];
+      }
+    });
+
+    console.log("/");
+    console.log(arre);
+    console.log("/");
+
+    if (arre.length > 0) {
+      arre.cantidad--;
+      let arr = arregloProductos.filter((producto) => producto.id !== aux);
+      arregloProductos = [...arr, ...arre];
+      localStorage.setItem("produ", JSON.stringify(arregloProductos));
+    } else {
+      let arr = arregloProductos.filter((producto) => producto.id !== aux);
+      arregloProductos = arr;
+      localStorage.setItem("produ", JSON.stringify(arregloProductos));
+    }
+  }
+  crearFilaCarrito(arregloProductos);
+}
+
 function almacenarMemoria() {
   localStorage.setItem("produ", JSON.stringify(arregloProductos));
+}
+
+function limpiar() {
+  while (contenedorCarrito.firstChild) {
+    contenedorCarrito.removeChild(contenedorCarrito.firstChild);
+  }
 }
