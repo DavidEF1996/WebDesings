@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
   //Este es el evento principal, aplicara todas las funciones js cuando el documento
   //haya cargado toddos los html, css, etc
 
-  window.setInterval(changeImage, 5000);
+  // window.setInterval(changeImage, 5000);
 
   eventListeners();
 

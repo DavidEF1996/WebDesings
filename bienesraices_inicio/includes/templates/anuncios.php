@@ -3,17 +3,13 @@
 require 'includes/config/database.php';
 $db = conectarBD();
 
-$query ="SELECT * FROM propiedades LIMIT ${limite} ";
+$query ="SELECT * FROM pasteleria LIMIT ${limite} ";
 
 $resultado = mysqli_query($db,$query);
 
 ?>
-
-
 <div class="contenedor-anuncios">
-    <?php while ($propiedad = mysqli_fetch_assoc($resultado)): ?>
-        <!--Contenedor para alinear los elementos tarjeta-->
-        <div class="anuncio">
+<div class="anuncio">
           <!--Para dar estilo a la tarjeta individual-->
           <picture>
             <!--Esta propiedad permite cargar imagenes en diferente formato segun soporte el navegador-->
@@ -23,12 +19,12 @@ $resultado = mysqli_query($db,$query);
           </picture>
           <div class="contenido-anuncio">
             <!--Contenedor para dar padding y color de fondo al texto de la tarjeta-->
-            <h3><?php echo $propiedad['tituloPropiedades']?></h3>
+            <h3>Licores</h3>
 
           
             <!--Se le agrega una clase para darle estilo diferente a este p-->
 
-            <a href="anuncio.php?id=<?php echo $propiedad['idPropiedades'] ?>" class="boton-amarillo-block">
+            <a href="anuncio.php?id=licores" class="boton-amarillo-block">
               Ver
               <!--El enlace al anuncio-->
             </a>
@@ -36,8 +32,9 @@ $resultado = mysqli_query($db,$query);
 
          
         </div>
-        <?php endwhile ?>
 </div>
+
+
 
 <?php
     mysqli_close($db); 
