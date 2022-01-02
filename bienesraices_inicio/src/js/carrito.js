@@ -5,7 +5,6 @@ let arregloProductos = [];
 
 principal();
 function principal() {
-  carrito.addEventListener("click", EliminarProducto);
   document.addEventListener("DOMContentLoaded", () => {
     console.log("me estoy iniciando");
     arregloProductos = JSON.parse(localStorage.getItem("produ")) || [];
@@ -17,6 +16,10 @@ function principal() {
     /* limpiar();
     crearFilaCarrito();*/
   });
+
+  if (carrito) {
+    carrito.addEventListener("click", EliminarProducto);
+  }
   if (listaProductos) {
     console.log("Existen");
     listaProductos.addEventListener("click", extraer);
@@ -36,6 +39,10 @@ function extraer(e) {
 }
 
 function datos(valores) {
+  const confirmar = confirm("Deseas Agregar al carrito?");
+  if (!confirmar) {
+    return;
+  }
   const productoSeleccionado = {
     imagen: valores.querySelector(".imagePrincipal").src,
     titulo: valores.querySelector("h1").textContent,
@@ -87,8 +94,10 @@ function crearFilaCarrito() {
 }
 
 function EliminarProducto(e) {
-  limpiar();
   e.stopPropagation();
+
+  limpiar();
+
   let arre = [];
   if (e.target.classList.contains("borrar-curso")) {
     const aux = e.target.getAttribute("data-id");
@@ -96,6 +105,7 @@ function EliminarProducto(e) {
       if (produ.id === aux && produ.cantidad > 1) {
         produ.cantidad--;
         arre = [...arre, produ];
+        console.log("llegue primer if");
       }
     });
 
@@ -108,10 +118,12 @@ function EliminarProducto(e) {
       let arr = arregloProductos.filter((producto) => producto.id !== aux);
       arregloProductos = [...arr, ...arre];
       localStorage.setItem("produ", JSON.stringify(arregloProductos));
+      console.log("llegue segundo if");
     } else {
       let arr = arregloProductos.filter((producto) => producto.id !== aux);
       arregloProductos = arr;
       localStorage.setItem("produ", JSON.stringify(arregloProductos));
+      console.log("llegue tercero if");
     }
   }
   crearFilaCarrito(arregloProductos);
