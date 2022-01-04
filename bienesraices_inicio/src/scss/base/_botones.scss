@@ -13,3 +13,10 @@
 .boton-ocultar {
   @include botonPequeno($amarillo, block);
 }
+
+.boton-rojo-block {
+  @include boton($rojo, block);
+}
+.boton-verde-block {
+  @include boton($verde, block);
+}
