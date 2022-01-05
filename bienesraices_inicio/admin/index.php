@@ -1,8 +1,7 @@
 <?php
 
 $tipoProductoSeleccionado = $_GET['id']??'licores';
-$id_eliminar = $_POST['id_eliminar'];
-var_dump($id_eliminar);
+
 
 require '../includes/config/database.php';
 $db = conectarBD();
@@ -13,7 +12,15 @@ $resultado = mysqli_query($db, $query);
 $aux = substr($tipoProductoSeleccionado,0 ,3);
 
 if($_SERVER['REQUEST_METHOD']==='POST'){
-   
+    $id_eliminar = $_POST['id_eliminar'];
+    $id_eliminar = filter_var($id_eliminar,FILTER_VALIDATE_INT);
+   if($id_eliminar){
+       $query = "Delete from $tipoProductoSeleccionado where id_$aux= $id_eliminar";
+        $delete = mysqli_query($db, $query);
+        if($delete){
+            header("location: /admin/index.php?id=$tipoProductoSeleccionado");
+        }
+   }
 }
 
 
@@ -30,9 +37,12 @@ incluirTemplate('header');
 
     <?php if(intval( $mensaje)===1): ?>
         <p class="alerta exito">Producto Insertado Correctamente</p>
-        <?php endif;?>
+        <?php elseif (intval($mensaje)===2):?>
+            <p class="alerta exito">Producto Actualizado Correctamente</p>
+     <?php endif;?>
 
-        <div class="menuProductos">
+
+ <div class="menuProductos">
   
   <form method="GET" name="pasteleria" action="/admin/index.php">
           <input type="hidden" name="id" value="pasteleria">
@@ -42,49 +52,49 @@ incluirTemplate('header');
           <input type="hidden" name="id" value="licores">
           <input type="submit"  value="Licores" >
       </form>
-      <form method="POST">
-                                    <input type="hidden" name="id_eliminar" value="hola">
-                                     <input type="submit" class="boton-rojo-block" value="Eliminar">
-                            </form>
-                      
+
 </div>
 
 
-        <table class="productos">
+        <table>
             <thead>
                 <tr>
-
                 <th>ID</th>
                 <th>Producto</th>
                 <th>Precio</th>
                 <th>Unidad de Medida</th>
                 <th>Acciones</th>
                 </tr>
-
+                </thead>
                 <tbody>
                     <?php while($propiedad = mysqli_fetch_assoc($resultado)): ?>
                     <tr>
-                        <td><?php echo($propiedad['id_'.$aux])?></td>
-                        <td><?php echo ($propiedad['desc_'.$aux])?></td>
-                        <td>$<?php echo ($propiedad['precio_'.$aux])?></td>
-                        <td><?php echo ($propiedad['unidad_medida_'.$aux]) ?></td>
+                        <td><?php echo$propiedad['id_'.$aux]; ?></td>
+                        <td><?php echo $propiedad['desc_'.$aux];?></td>
+                        <td>$<?php echo $propiedad['precio_'.$aux];?></td>
+                        <td><?php echo $propiedad['unidad_medida_'.$aux]; ?></td>
                         <td>
-                            <form method="POST">
-                                    <input type="hidden" name="id_eliminar" value="hola">
+                            <div>
+                                  <form method="POST" class="w-100" name="formu" action="#">
+                                     <input type="hidden" name="id_eliminar" value="<?php echo $propiedad['id_'.$aux];?>">
                                      <input type="submit" class="boton-rojo-block" value="Eliminar">
                             </form>
-                      
+                            <a href="propiedades/actualizar.php?id=<?php echo $propiedad['id_'.$aux];?>&tabla=<?php echo $tipoProductoSeleccionado?>" class="boton-amarillo-block">Actualizar</a>
+                      </div>
+                          
+                           
                        
                         </td>
-                        <td>
-                        <a href="#" class="boton-amarillo-block">Actualizar</a>
-                        </td>
+                       
+                      
                     </tr>
                     <?php endwhile;?>
                 </tbody>
-            </thead>
+           
             
+
         </table>
+        
 </main>
 
 <?php
