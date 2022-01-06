@@ -1,0 +1,39 @@
+.alerta {
+  padding: 0.5rem;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 1rem 0;
+
+  &.error {
+    background-color: rgb(221, 81, 66);
+  }
+
+  &.exito {
+    background-color: rgb(132, 174, 132);
+  }
+}
+
+table.productos {
+  margin-top: 1rem;
+  width: 100%;
+  border-spacing: 0;
+
+  display: table;
+
+  thead {
+    background-color: rgb(112, 186, 112);
+
+    th {
+      color: white;
+      padding: 2rem;
+    }
+  }
+}
+
+.menuProductos {
+  margin-top: 2rem;
+  display: flex;
+  column-gap: 2rem;
+}
