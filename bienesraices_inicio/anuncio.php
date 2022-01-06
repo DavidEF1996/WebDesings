@@ -45,19 +45,19 @@ incluirTemplate('header');
  <div id="galeria_imagen">
  <img id="imgGaleria <?php echo $contador ?>" class="imagePrincipal" src="build/img/anuncio1.webp" /></div>
  <div id="galeria_miniaturas">
-<<<<<<< HEAD
+
  <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria').src=this.src;" src="/AuxiliarImages/logoHM.gif" />
  <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria').src=this.src;" src="build/img/anuncio2.webp" />
  <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria').src=this.src;" src="build/img/anuncio3.webp" />
-=======
+
  <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria <?php echo $contador ?>').src=this.src;" src="build/img/anuncio1.webp" />
  <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria <?php echo $contador ?>').src=this.src;" src="build/img/anuncio2.webp" />
  <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria <?php echo $contador ?>').src=this.src;" src="build/img/anuncio3.webp" />
->>>>>>> origin/david
+
  </div>
  </div>
       <!--      <p class="precio">$<?php // echo $propiedad['precio_lic']?></p>--> 
-           
+      <input type="number" class="cantidad"  min="1" max="50"  >
             <p>Aquí va una descripción del producto </p>
             <a
                 href="#"

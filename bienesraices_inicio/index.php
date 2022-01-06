@@ -12,7 +12,7 @@ incluirTemplate('header', $inicio=true);
       <div class="contenedor-nosotros">
         <div class="imagen-nosotros">
           <picture>
-          <source srcset="/AuxiliarImages/logoHM.gif" type="image/webp" />
+          <source srcset="/AuxiliarImages/chica.jfif" type="image/webp" />
             
             <source srcset="AuxiliarImages/chica.jfif" type="image/jpg" />
             <h2>
