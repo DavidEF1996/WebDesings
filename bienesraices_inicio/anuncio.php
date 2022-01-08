@@ -32,9 +32,11 @@ incluirTemplate('header');
     
         
       <?php while ($propiedad = mysqli_fetch_assoc($resultado)): ?>
-
+        
         <div class="imagen-anuncio">
+            
         <h1><?php echo $propiedad['desc_lic']?></h1>
+       <h2> <?php echo mysqli_fetch_assoc($resultado)?> </h2>
             <picture> <!--Esta propiedad permite cargar imagenes en diferente formato segun soporte el navegador-->
                 <source srcset="build/img/destacada.webp" type="image/webp">
                 <source srcset="build/img/destacada.jpg" type="image/jpg">
@@ -42,33 +44,28 @@ incluirTemplate('header');
             </picture>
 
             <div id="galeria">
- <div id="galeria_imagen">
- <img id="imgGaleria <?php echo $contador ?>" class="imagePrincipal" src="build/img/anuncio1.webp" /></div>
- <div id="galeria_miniaturas">
+                <div id="galeria_imagen">
+                    <img id="imgGaleria <?php echo $contador ?>" class="imagePrincipal" src="build/img/anuncio1.webp" /></div>
+                    <div id="galeria_miniaturas">
 
- <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria').src=this.src;" src="/AuxiliarImages/logoHM.gif" />
- <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria').src=this.src;" src="build/img/anuncio2.webp" />
- <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria').src=this.src;" src="build/img/anuncio3.webp" />
-
- <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria <?php echo $contador ?>').src=this.src;" src="build/img/anuncio1.webp" />
- <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria <?php echo $contador ?>').src=this.src;" src="build/img/anuncio2.webp" />
- <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria <?php echo $contador ?>').src=this.src;" src="build/img/anuncio3.webp" />
-
- </div>
- </div>
-      <!--      <p class="precio">$<?php // echo $propiedad['precio_lic']?></p>--> 
-      <input type="number" class="cantidad"  min="1" max="50"  >
-            <p>Aquí va una descripción del producto </p>
-            <a
-                href="#"
-                class="u-full-width button-primary button input agregar-carrito"
-                data-id=<?php echo $propiedad['id_lic'] ?>
-                >Agregar Al Carrito</a>
-        </div>
+                        <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria').src=this.src;" src="/AuxiliarImages/logoHM.gif" />
+                        <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria').src=this.src;" src="build/img/anuncio2.webp" />
+                        <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria').src=this.src;" src="build/img/anuncio3.webp" />
+                    </div>
+                </div>
+                        <!--      <p class="precio">$<?php // echo $propiedad['precio_lic']?></p>--> 
+                        <input id = "cantidad" type="number" class="cantidad"  min="1" max="50"  >
+                        <p>Aquí va una descripción del producto </p>
+                        <a
+                            href="#"
+                            class="u-full-width button-primary button input agregar-carrito"
+                            data-id=<?php echo $propiedad['id_lic'] ?>
+                            >Agregar Al Carrito</a>
+                            </div>
         
-        <?php $contador++; ?>
-        <?php endwhile ?>
-      </div>
+                            <?php $contador++; ?>
+                            <?php endwhile ?>
+    </div>
     
 
 
