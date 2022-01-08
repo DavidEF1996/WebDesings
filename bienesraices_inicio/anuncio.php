@@ -32,13 +32,12 @@ incluirTemplate('header');
     
         
       <?php while ($propiedad = mysqli_fetch_assoc($resultado)): ?>
-        
+       <?php $aux = substr($id,0 ,3);?>
         <div class="imagen-anuncio">
             
-        <h1><?php echo $propiedad['desc_lic'] ?></h1>
-        <?php if ($propiedad['desc_lic'] == 'a'):?>
-            <h1>si son iguales</h1>
-            <?php endif ?>
+        <h1><?php echo $propiedad["desc_$aux"] ?></h1>
+
+        
             <picture> <!--Esta propiedad permite cargar imagenes en diferente formato segun soporte el navegador-->
                 <source srcset="build/img/destacada.webp" type="image/webp">
                 <source srcset="build/img/destacada.jpg" type="image/jpg">
