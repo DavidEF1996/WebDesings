@@ -35,7 +35,7 @@
             <nav class="navegacion">
           
 
-              <a href="#">Productos</a>
+              <a href="anuncio.php">Productos</a>
              
            
               <a href="#">Contacto</a>

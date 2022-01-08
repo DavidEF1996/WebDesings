@@ -47,7 +47,8 @@ function datos(valores) {
     imagen: valores.querySelector(".imagePrincipal").src,
     titulo: valores.querySelector("h1").textContent,
     id: valores.querySelector("a").getAttribute("data-id"),
-    cantidad: valores.querySelector("cantidad").textContent,
+    cantidad: valores.querySelector("#cantidad").value,
+    
   };
   const existe = arregloProductos.some(
     (produ) => produ.id === productoSeleccionado.id
@@ -85,6 +86,7 @@ function crearFilaCarrito() {
       <td> ${element.titulo}</td>
       
       <td> ${element.cantidad}</td>
+      <td> ${element.quitar}</td>
       <td> <a href="#" class="borrar-curso" data-id="${element.id}"> X </a> </>
         `;
     if (contenedorCarrito) {
