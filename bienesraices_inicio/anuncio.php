@@ -77,10 +77,10 @@ incluirTemplate('header');
                                         /*echo  $ruta."/".$archivo."\n"  ;*/
                                         ?>
                                 
-                                <div id="galeria_miniaturas">
+                                            <rows id="galeria_miniaturas">
         
                                                 <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria').src=this.src;" src="<?php echo  $ruta."/".$archivo ?>" />
-                                            </div>
+                                   </rows>
                                         
                                             <?php
     
