@@ -45,8 +45,7 @@ incluirTemplate('header');
             </picture>
 
             <div id="galeria">
-                <div id="galeria_imagen">
-                    <?php 
+            <?php 
                     $descripcion = $propiedad["desc_$aux"];
                        $ruta = ("AuxiliarImages/Productos/$id/$descripcion");
                         /*echo "$ruta <br/>";*/
@@ -55,29 +54,52 @@ incluirTemplate('header');
                             $gestor = opendir($ruta);
 
                             // Recorre todos los archivos del directorio
+                            $contador_img = 1;
                             while (($archivo = readdir($gestor)) !== false)  {
+                                /*echo  $contador_img." fuera del if ruta \n";*/
                                 // Solo buscamos archivos sin entrar en subdirectorios
                                 if (is_file($ruta."/".$archivo)) {
-                                    echo "<img src='".$ruta."/".$archivo."' width='100px' alt='".$archivo."' title='".$archivo."'>";
-                                }            
+                                    
+                                   if($contador_img == 1){
+                                    
+                                    ?> 
+                                    <div id="galeria_imagen">
+                
+                                        <img id="imgGaleria <?php echo $contador ?>" class="imagePrincipal" src="<?php echo  $ruta."/".$archivo ?>" />
+                                    </div>
+                                   
+                                    <?php
+                    
+                                            /*echo  $ruta."/".$archivo."\n" ;*/
+                                        
+                                   }else{
+                                
+                                        /*echo  $ruta."/".$archivo."\n"  ;*/
+                                        ?>
+                                
+                                <div id="galeria_miniaturas">
+        
+                                                <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria').src=this.src;" src="<?php echo  $ruta."/".$archivo ?>" />
+                                            </div>
+                                        
+                                            <?php
+    
+                                   }
+                                   $contador_img = $contador_img+1;  
+                                    }  
+                                    
                             }
 
-                            // Cierra el gestor de directorios
                             closedir($gestor);
-                        } else {
-                            echo "No es una ruta de directorio valida<br/>";
+                        }  else {
+                            echo "No es una ruta de directorio valida";
+                            
                         }
                     ?>
-                    <!--<img id="imgGaleria <?php echo $contador ?>" class="imagePrincipal" src="/AuxiliarImages/Productos/<?php echo $id ?>" /></div>
-                    <div id="galeria_miniaturas">
-
-                        <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria').src=this.src;" src="/AuxiliarImages/logoHM.gif" />
-                        <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria').src=this.src;" src="build/img/anuncio2.webp" />
-                        <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria').src=this.src;" src="build/img/anuncio3.webp" />
-                    </div>-->
-                </div>
+                    </div>
+        
                         <!--      <p class="precio">$<?php // echo $propiedad['precio_lic']?></p>--> 
-                        <input id = "cantidad" type="number" class="cantidad"  min="1" max="50"  >
+                        <input id = "cantidad" type="number" class="cantidad"  min="1" max="50"  />
                         <p>Aquí va una descripción del producto </p>
                         <a
                             href="#"
