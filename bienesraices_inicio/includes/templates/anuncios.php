@@ -34,7 +34,7 @@ $resultado = mysqli_query($db,$query);
           
             <!--Se le agrega una clase para darle estilo diferente a este p-->
 
-            <a href="anuncio.php?id=<?php echo $producto ?>"  class="boton-amarillo-block">
+            <a href="anuncio.php?id=<?php echo $producto ?>"  class="boton-rojo-block">
               Ver
               <!--El enlace al anuncio-->
             </a>

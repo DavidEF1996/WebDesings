@@ -16,6 +16,13 @@
   align-items: center;
   justify-content: center;
 }
+.alinear-izquierda {
+  display: flex;
+  gap: 2rem;
+}
+.cantidad {
+  margin-bottom: 2rem;
+}
 
 .w-100 {
   width: 100%;

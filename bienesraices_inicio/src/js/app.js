@@ -5,24 +5,6 @@ const tablaOcultar = document.querySelector("#tabla");
 var image = document.querySelector(".transicion");
 var img = 1;
 
-if (botonMostrar != null && botonOcultar != null) {
-  botonOcultar.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    tablaOcultar.style.display = "none";
-    botonOcultar.style.display = "none";
-    botonMostrar.style.display = "block";
-  });
-
-  botonMostrar.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    tablaOcultar.style.display = "inline";
-    botonOcultar.style.display = "block";
-    botonMostrar.style.display = "none";
-  });
-}
-
 document.addEventListener("DOMContentLoaded", function () {
   //Este es el evento principal, aplicara todas las funciones js cuando el documento
   //haya cargado toddos los html, css, etc
@@ -30,12 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // window.setInterval(changeImage, 5000);
 
   eventListeners();
-
-  if ((botonOcultar != null) & (botonMostrar != null)) {
+  if (tablaOcultar) {
     tablaHorarios();
-
-    botonOcultar.style.display = "none";
-    tablaOcultar.style.display = "none";
   }
 
   //  darkMode();

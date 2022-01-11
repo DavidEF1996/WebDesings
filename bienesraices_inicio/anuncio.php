@@ -65,9 +65,9 @@ incluirTemplate('header');
                                     ?> 
                                     <div id="galeria_imagen">
                 
-                                        <img id="imgGaleria <?php echo $contador ?>" class="imagePrincipal" src="<?php echo  $ruta."/".$archivo ?>" />
+                                        <img id="imgGaleria <?php echo $contador ?>" class="imagePrincipal" src="<?php echo  "/".$ruta."/".$archivo ?>" />
                                     </div>
-                                   
+                                    <div id="galeria_miniaturas">
                                     <?php
                     
                                             /*echo  $ruta."/".$archivo."\n" ;*/
@@ -77,10 +77,10 @@ incluirTemplate('header');
                                         /*echo  $ruta."/".$archivo."\n"  ;*/
                                         ?>
                                 
-                                            <rows id="galeria_miniaturas">
+                                 
         
-                                                <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria').src=this.src;" src="<?php echo  $ruta."/".$archivo ?>" />
-                                   </rows>
+                                <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria <?php echo $contador ?>').src=this.src;" src="<?php echo  $ruta."/".$archivo ?>" />
+
                                         
                                             <?php
     
@@ -96,16 +96,24 @@ incluirTemplate('header');
                             
                         }
                     ?>
-                    </div>
-        
+                       </div>
+                       <div class="contendor-descripcion">
                         <!--      <p class="precio">$<?php // echo $propiedad['precio_lic']?></p>--> 
-                        <input id = "cantidad" type="number" class="cantidad"  min="1" max="50"  />
-                        <p>Aquí va una descripción del producto </p>
+                      
+                        <div class="alinear-izquierda">
+                        <p >Cantidad:</p>
+                        <input id = "cantidad" type="number" class="cantidad"  min="1" max="50" />
+                        </div>
+                        <p class="cantidad">Aquí va una descripción del producto </p>
                         <a
                             href="#"
-                            class="u-full-width button-primary button input agregar-carrito"
+                            class="boton-rojo-block  input agregar-carrito"
                             data-id=<?php echo $propiedad["id_$aux"] ?>
                             >Agregar Al Carrito</a>
+                    </div>
+                    </div>
+        
+                  
                             </div>
         
                             <?php $contador++; ?>
