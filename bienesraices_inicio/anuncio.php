@@ -34,44 +34,72 @@ incluirTemplate('header');
       <?php while ($propiedad = mysqli_fetch_assoc($resultado)): ?>
        <?php $aux = substr($id,0 ,3);?>
         <div class="imagen-anuncio">
-     
+            
         <h1><?php echo $propiedad["desc_$aux"] ?></h1>
 
         
+            <picture> <!--Esta propiedad permite cargar imagenes en diferente formato segun soporte el navegador-->
+                <source srcset="build/img/destacada.webp" type="image/webp">
+                <source srcset="build/img/destacada.jpg" type="image/jpg">
+        
+            </picture>
+
             <div id="galeria">
-                <div id="galeria_imagen">
-                    <?php 
+            <?php 
                     $descripcion = $propiedad["desc_$aux"];
-                    $cnt=0;
                        $ruta = ("AuxiliarImages/Productos/$id/$descripcion");
                         /*echo "$ruta <br/>";*/
                         if (is_dir($ruta)){                                    
                         
                             $gestor = opendir($ruta);
-                        
+
                             // Recorre todos los archivos del directorio
+                            $contador_img = 1;
                             while (($archivo = readdir($gestor)) !== false)  {
+                                /*echo  $contador_img." fuera del if ruta \n";*/
                                 // Solo buscamos archivos sin entrar en subdirectorios
-                                if ((is_file($ruta."/".$archivo)) && ( $cnt<1)) {
-                               //     echo "<img src='".$ruta."/".$archivo."' width='100px' alt='".$archivo."' title='".$archivo."'>";
-                                  echo " <img id='imgGaleria.$contador'   class=imagenPrincipal src='".$ruta."/".$archivo."' />";
-                                  $cnt+=1;   
-                                }else{
-                                    echo "<div class='galeria_miniaturas' ><img   class=miniatura src='".$ruta."/".$archivo."' /></div>";
-                                }
-                                     
+                                if (is_file($ruta."/".$archivo)) {
+                                    
+                                   if($contador_img == 1){
+                                    
+                                    ?> 
+                                    <div id="galeria_imagen">
+                
+                                        <img id="imgGaleria <?php echo $contador ?>" class="imagePrincipal" src="<?php echo  $ruta."/".$archivo ?>" />
+                                    </div>
+                                   
+                                    <?php
+                    
+                                            /*echo  $ruta."/".$archivo."\n" ;*/
+                                        
+                                   }else{
+                                
+                                        /*echo  $ruta."/".$archivo."\n"  ;*/
+                                        ?>
+                                
+                                            <rows id="galeria_miniaturas">
+        
+                                                <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria').src=this.src;" src="<?php echo  $ruta."/".$archivo ?>" />
+                                   </rows>
+                                        
+                                            <?php
+    
+                                   }
+                                   $contador_img = $contador_img+1;  
+                                    }  
+                                    
                             }
 
-                            // Cierra el gestor de directorios
                             closedir($gestor);
-                        } else {
-                            echo "No es una ruta de directorio valida<br/>";
+                        }  else {
+                            echo "No es una ruta de directorio valida";
+                            
                         }
                     ?>
-              
-                </div>
+                    </div>
+        
                         <!--      <p class="precio">$<?php // echo $propiedad['precio_lic']?></p>--> 
-                        <input id = "cantidad" type="number" class="cantidad"  min="1" max="50"  >
+                        <input id = "cantidad" type="number" class="cantidad"  min="1" max="50"  />
                         <p>Aquí va una descripción del producto </p>
                         <a
                             href="#"
@@ -80,24 +108,10 @@ incluirTemplate('header');
                             >Agregar Al Carrito</a>
                             </div>
         
-                    </div>
                             <?php $contador++; ?>
                             <?php endwhile ?>
+    </div>
     
-    
-
-                    </div>
-
-
-                    </div>
-
-
-
-
-
-
-
-
 
 
     <?php
