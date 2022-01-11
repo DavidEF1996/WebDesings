@@ -48,7 +48,7 @@ incluirTemplate('header');
             <?php 
                     $descripcion = $propiedad["desc_$aux"];
                        $ruta = ("AuxiliarImages/Productos/$id/$descripcion");
-                        /*echo "$ruta <br/>";*/
+                        //echo "$ruta <br/>";/
                         if (is_dir($ruta)){                                    
                         
                             $gestor = opendir($ruta);
@@ -56,7 +56,7 @@ incluirTemplate('header');
                             // Recorre todos los archivos del directorio
                             $contador_img = 1;
                             while (($archivo = readdir($gestor)) !== false)  {
-                                /*echo  $contador_img." fuera del if ruta \n";*/
+                                //echo  $contador_img." fuera del if ruta \n";/
                                 // Solo buscamos archivos sin entrar en subdirectorios
                                 if (is_file($ruta."/".$archivo)) {
                                     
@@ -65,22 +65,22 @@ incluirTemplate('header');
                                     ?> 
                                     <div id="galeria_imagen">
                 
-                                        <img id="imgGaleria <?php echo $contador ?>" class="imagePrincipal" src="<?php echo  $ruta."/".$archivo ?>" />
+                                        <img id="imgGaleria <?php echo $contador ?>" class="imagePrincipal" src="<?php echo  "/".$ruta."/".$archivo ?>" />
                                     </div>
-                                   
+                                    <div id="galeria_miniaturas">
                                     <?php
                     
-                                            /*echo  $ruta."/".$archivo."\n" ;*/
+                                           //echo  $ruta."/".$archivo."\n" ;/
                                         
                                    }else{
                                 
-                                        /*echo  $ruta."/".$archivo."\n"  ;*/
+                                        //echo  $ruta."/".$archivo."\n"  ;/
                                         ?>
                                 
-                                            <rows id="galeria_miniaturas">
+                                 
         
-                                                <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria').src=this.src;" src="<?php echo  $ruta."/".$archivo ?>" />
-                                   </rows>
+                                <img class="miniatura" onclick="javascript:document.getElementById('imgGaleria <?php echo $contador ?>').src=this.src;" src="<?php echo  $ruta."/".$archivo ?>" />
+
                                         
                                             <?php
     
@@ -96,6 +96,7 @@ incluirTemplate('header');
                             
                         }
                     ?>
+                       </div>
                     </div>
         
                         <!--      <p class="precio">$<?php // echo $propiedad['precio_lic']?></p>--> 
