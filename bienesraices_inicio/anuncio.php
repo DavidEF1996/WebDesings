@@ -97,16 +97,25 @@ incluirTemplate('header');
                         }
                     ?>
                        </div>
-                    </div>
-        
+
+                       <div class="contendor-descripcion">
+
                         <!--      <p class="precio">$<?php // echo $propiedad['precio_lic']?></p>--> 
-                        <input id = "cantidad" type="number" class="cantidad"  min="1" max="50"  />
-                        <p>Aquí va una descripción del producto </p>
+                      
+                        <div class="alinear-izquierda">
+                        <p >Cantidad:</p>
+                        <input id = "cantidad" type="number" class="cantidad"  min="1" max="50" />
+                        </div>
+                        <p class="cantidad">Aquí va una descripción del producto </p>
                         <a
                             href="#"
-                            class="u-full-width button-primary button input agregar-carrito"
+                            class="boton-rojo-block  input agregar-carrito"
                             data-id=<?php echo $propiedad["id_$aux"] ?>
                             >Agregar Al Carrito</a>
+                    </div>
+                    </div>
+        
+                  
                             </div>
         
                             <?php $contador++; ?>

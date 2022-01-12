@@ -32,7 +32,7 @@ function extraer(e) {
   e.preventDefault();
 
   if (e.target.classList.contains("agregar-carrito")) {
-    const valores = e.target.parentElement;
+    const valores = e.target.parentElement.parentElement.parentElement;
 
     datos(valores);
   }
@@ -48,7 +48,6 @@ function datos(valores) {
     titulo: valores.querySelector("h1").textContent,
     id: valores.querySelector("a").getAttribute("data-id"),
     cantidad: valores.querySelector("#cantidad").value,
-    
   };
   const existe = arregloProductos.some(
     (produ) => produ.id === productoSeleccionado.id

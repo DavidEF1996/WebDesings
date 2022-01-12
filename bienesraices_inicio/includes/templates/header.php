@@ -35,11 +35,17 @@
             <nav class="navegacion">
           
 
-              <a href="anuncio.php">Productos</a>
+              <a href="productos.php">Productos</a>
              
            
               <a href="#">Contacto</a>
-              <a href="anuncios.php">Carrito</a>
+             
+
+              <a href="anuncios.php">
+              <img src="/AuxiliarImages/cart.png" id="img-carrito" class="carrito-imagen" />
+
+              </a>
+             
             
         
             </nav>

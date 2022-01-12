@@ -2,6 +2,9 @@
   @include boton($amarillo, inline-block);
 } //este mixin ocupa todo el espacio y es amarillo
 
+.boton-rojo {
+  @include boton($rojo, inline-block);
+}
 .boton-amarillo-block {
   @include boton($amarillo, block);
 } //este mixin ocupa solo el necesario y es amarillo
@@ -17,6 +20,9 @@
 .boton-rojo-block {
   @include boton($rojo, block);
   width: 100%;
+}
+.bton-gray-block {
+  @include boton($grisOscuro, block);
 }
 .boton-verde-block {
   @include boton($verde, block);

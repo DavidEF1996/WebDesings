@@ -65,7 +65,7 @@ incluirTemplate('header', $inicio=true);
       <p>
         Comunicate con nostros ahora!!
       </p>
-      <a href="contacto.php" class="boton-amarillo">Contactanos</a>
+      <a href="contacto.php" class="boton-rojo">Contactanos</a>
 
       <h3>O, aún mejor, ¡ven a visitarnos!</h3>
       <p>Av. los Andes y calle Cajas.</p>
@@ -74,9 +74,7 @@ incluirTemplate('header', $inicio=true);
  
     <div class=" contenedor contenedor-horarios">
       <h1>HORARIOS DE ATENCIÓN</h1>
-      <div class="alinear-centro ocultar">
-        <a href="#" class="boton boton-ocultar botonMostrar"> Desplegar </a>
-      </div>
+      
     <div class="tabla">
       
       <table id="tabla" >
@@ -97,9 +95,7 @@ incluirTemplate('header', $inicio=true);
 
       </table>
 
-      <div class="alinear-centro ocultar">
-        <a href="#" class="boton boton-ocultar botonOcultar"> Ocultar </a>
-      </div>
+ 
     </div>
   
     </div>

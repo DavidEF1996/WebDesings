@@ -1,19 +1,13 @@
 .footer {
-  background-color: $grisOscuro;
+  background-color: $negro;
   padding: $separacion/2 0;
-
-  .navegacion {
-    visibility: inherit;
-    opacity: 1;
-    height: auto;
-  }
 
   contenido-footer {
     padding: $separacion/2;
   }
 
   .copyright {
-    color: $blanco;
+    color: $rojo;
     text-align: center;
   }
 }

@@ -23,7 +23,7 @@
   align-items: center;
   p {
     font-size: 4rem;
-    color: $blanco;
+    color: $rojo;
     font-weight: $bold;
     width: 30rem;
     display: inline;
@@ -37,7 +37,7 @@
 
     p {
       font-size: 5rem;
-      color: $blanco;
+      color: $rojo;
       font-weight: $bold;
 
       display: inline;
@@ -64,7 +64,7 @@
     display: flex; // y en pantallas grandes el menu de  navegacion tiene flex
   }
   a {
-    color: $blanco;
+    color: $rojo;
     text-decoration: none;
     font-size: 2.2rem;
     display: block; //todo el ancho disponible

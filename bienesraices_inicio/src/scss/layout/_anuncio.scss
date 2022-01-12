@@ -33,12 +33,28 @@
   align-items: center;
   box-sizing: border-box;
 }
+#galeria_imagen {
+  height: 25rem;
+  overflow: hidden;
+  object-fit: cover;
+  /* border: 1.5rem groove rgb(245, 140, 140);
+  border-image-width: 1;
+  border-image-slice: 23%;
+  border-image-repeat: round;*/
+}
+.imagenPrincipal {
+  max-height: 100%;
+}
 #galeria {
   border: 1px solid #eaeaea; /* Borde de la galería */
   padding: 10px;
   padding-bottom: 0;
   background: white; /* Fondo de la galería */
   width: 100%;
+  border: 1rem groove gray;
+  border-image-width: 1;
+  border-image-slice: 23%;
+  border-image-repeat: round;
 
   #galeria_miniaturas {
     display: table;
@@ -64,6 +80,10 @@
   .miniatura:active {
     opacity: 1;
   } /* Ancho de la galería */
+}
+
+.contendor-descripcion {
+  padding: 2rem;
 }
 
 .conte-anuncios {
