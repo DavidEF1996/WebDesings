@@ -8,8 +8,8 @@
 }
 
 #slideshow-home {
-  width: 100%;
-  opacity: 0;
+  width: 75%;
+  opacity: 50;
 }
 
 @keyframes fadeIn {
@@ -22,7 +22,7 @@
 }
 
 .fadeIn {
-  animation: fadeIn 4s both;
+  animation: fadeIn 7s both;
 }
 
 .header {

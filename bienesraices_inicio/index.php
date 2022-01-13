@@ -7,7 +7,7 @@ incluirTemplate('header', $inicio=true);
 
     <main class="contenedor seccion">
       <!--Se crea el contenedor principal y usamos seccion para tener margin y padding, este esta creado en utilidades-->
-      <h1>Más Sobre Nostoros</h1>
+      <h1 id="title_nosotros" >Más Sobre Nostoros</h1>
 
       <div class="contenedor-nosotros">
         <div class="imagen-nosotros">
