@@ -7,9 +7,16 @@
   }
 }
 
+.anuncio:last-child:nth-child(2n - 1) {
+  grid-column-end: -2;
+}
 .anuncio {
-  border: 1px solid lighten($gris, 10);
-  background-color: $gris;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border: 0.7rem dotted;
+  border-color: rgb(124, 87, 87);
+  border-image-width: 1;
+  border-image-slice: 10%;
 
   .contenido-anuncio {
     padding: 2rem;

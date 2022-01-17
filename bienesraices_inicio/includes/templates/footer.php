@@ -7,5 +7,6 @@
     </footer>
 
     <script src="/build/js/bundle.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>

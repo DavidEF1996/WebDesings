@@ -1,4 +1,6 @@
 .derecha {
+  width: 1rem;
+  max-width: 1rem;
   display: flex;
 
   align-items: center;
@@ -14,6 +16,10 @@
 
     filter: invert(100%);
   }
+}
+
+.barra-total {
+  background-color: black;
 }
 
 .barra {
@@ -34,6 +40,35 @@
     gap: 2rem;
     align-items: center;
     justify-content: center;
+
+    p {
+      font-size: 5rem;
+      color: $rojo;
+      font-weight: $bold;
+
+      display: inline;
+    }
+  }
+}
+
+.barra2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p {
+    font-size: 4rem;
+    color: $rojo;
+    font-weight: $bold;
+    width: 30rem;
+    display: inline;
+  }
+
+  @include tablet {
+    flex-direction: row;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-around;
 
     p {
       font-size: 5rem;
@@ -87,18 +122,21 @@
     display: none;
   }
   img {
-    width: 5rem;
+    width: 3rem;
   }
 }
 
 //para mostrar el menu desde el hamburguesa
 
 .mostrar {
-  /*display: flex;
+  display: flex;
   flex-direction: column;
-  @include telefono {
+  align-items: center;
+  @include tablet {
     flex-direction: row;
-  }*/
+    justify-content: center;
+  }
+
   visibility: visible; //esto muestra el menu reemplaza el codigo de arriba ya que permite animar
   opacity: 1; //cambia la opacidad para que se muestre
   height: auto;
