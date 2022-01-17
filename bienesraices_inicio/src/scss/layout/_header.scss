@@ -26,6 +26,7 @@
 }
 
 .header {
+  height: 25rem;
   background-color: $negro;
   padding: 1rem 0 3rem 0;
 
@@ -34,13 +35,41 @@
     background-size: cover; //toma todo el espacio disponible
 
     // como header e inicio estan al mismo nivel, con el & hacemos referencia a el mismo elemento
-    @include tablet {
+    @include telefono {
       min-height: 70rem;
     }
 
     .contenido-header {
       // cuando inicio existe aplica el 70rem para que llene todo el espacio para la imagen
-      @include tablet {
+      @include telefono {
+        min-height: 70rem; // para que llene todo el espacio de la imagen el contendio-header
+      }
+    }
+  }
+  &.inicio2 {
+    background-position: center center; //imagen centrada horizontal y vertical
+    background-size: cover; //toma todo el espacio disponible
+
+    // como header e inicio estan al mismo nivel, con el & hacemos referencia a el mismo elemento
+  }
+}
+
+.header2 {
+  background-color: $negro;
+  padding: 1rem 0 3rem 0;
+
+  &.inicio {
+    background-position: center center; //imagen centrada horizontal y vertical
+    background-size: cover; //toma todo el espacio disponible
+
+    // como header e inicio estan al mismo nivel, con el & hacemos referencia a el mismo elemento
+    @include telefono {
+      min-height: 70rem;
+    }
+
+    .contenido-header {
+      // cuando inicio existe aplica el 70rem para que llene todo el espacio para la imagen
+      @include telefono {
         min-height: 70rem; // para que llene todo el espacio de la imagen el contendio-header
       }
     }

@@ -10,13 +10,17 @@ $query = "SHOW TABLES FROM $nombre_bd";
 $resultado = mysqli_query($db,$query);
 
 ?> 
-
+<br>
+<h1>EN HM EVENTOS, ESTAMOS PARA SERVIRLE</h1>
+<br>
 <div class="contenedor-anuncios">
+
 <?php while ($fila = mysqli_fetch_row($resultado)):?>
 
     
 <div class="anuncio">
  
+
    
           <!--Para dar estilo a la tarjeta individual-->
          <!-- <picture>
@@ -29,7 +33,7 @@ $resultado = mysqli_query($db,$query);
           <?php $producto = "{$fila[0]}" ?>
             <!--Contenedor para dar padding y color de fondo al texto de la tarjeta-->
             
-            <h3> <?php echo $producto ?></h3>
+            <h3> <?php echo strtoupper($producto)  ?></h3>
          
           
             <!--Se le agrega una clase para darle estilo diferente a este p-->

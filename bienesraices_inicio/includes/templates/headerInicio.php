@@ -8,7 +8,7 @@
     <link href="../../build/css/app.css" rel="stylesheet" />
   </head>
   <body>
-    <header class="header2 <?php echo $inicio ?'inicio transicion fadeIn':''; ?> ">
+    <header class="header <?php echo $inicio ?'inicio transicion fadeIn':''; ?> ">
       <!--Este header es el principal de la navegacion, aqui va la imagen de fondo-->
     
 
@@ -16,13 +16,37 @@
         <!--Este div es para centrar dentro del header y contenido ya esta creada
             en los globales, y tiene otra contenido-header para darle estilos individuales-->
 
-        <div class="barra2">
+       
+
+        
+       
+
+
+
+
+     
+        
+      </div>
+    </header>
+
+
+
+
+    <div class="barra-total">
+      <!--Este header es el principal de la navegacion, aqui va la imagen de fondo-->
+    
+
+      <div class="contenedor contenido-header">
+        <!--Este div es para centrar dentro del header y contenido ya esta creada
+            en los globales, y tiene otra contenido-header para darle estilos individuales-->
+
+        <div class="barra">
           <!--Este div contiene la barra de navegacion-->
-          <a href="index.php">
-            <!--Se considera un estandar que al dar click a la imagen lleve a la  pagina principal, entonces si damos click va a ir a la pagina principal-->
-            <p>HM EVENTOS</p>
-            <!--Imagen de fondo y svg es buena opcion-->
-          </a>
+        
+          <?php if($inicio):?> 
+        <h1>HM EVENTOS</h1>
+        <?php else: ?>
+          <?php endif;?>
 
           <div class="mobile-menu">
             <!--Este esera el menu de tipo hamburguesa-->
@@ -30,7 +54,7 @@
           </div>
 
         
-          <div class="derecha">
+     
 
             <nav class="navegacion">
           
@@ -38,7 +62,7 @@
               <a href="productos.php">Productos</a>
              
            
-              <a href="contacto.php">Contacto</a>
+              <a href="#">Contacto</a>
              
 
               <a href="anuncios.php">
@@ -49,14 +73,11 @@
             
         
             </nav>
+           
             
             
-   
-          </div>
-          <div class="rowC">
+
        
-       
-     </div>
 
   
      
@@ -71,10 +92,7 @@
 
 
 
-        <?php if($inicio):?> 
-        <h1>Bienvenido a HM EVENTOS</h1>
-        <?php else: ?>
-          <?php endif;?>
+        
         
       </div>
-    </header>
+        </div>

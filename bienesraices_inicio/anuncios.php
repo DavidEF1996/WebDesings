@@ -14,19 +14,24 @@ incluirTemplate('header');
                   <table id="lista-carrito" class="u-full-width">
                     <thead>
                       <tr>
-                        <th>Imagen</th>
+                        <th>Producto</th>
                         <th>Nombre</th>
-                        <th>Precio</th>
                         <th>Cantidad</th>
+                   
                         <th></th>
                       </tr>
                     </thead>
                     <tbody></tbody>
                   </table>
 
-                  <a href="#" id="vaciar-carrito" class="button u-full-width"
-                    >Vaciar Carrito</a
+                  <div class="botones-carrito">
+                
+                   <a href="contacto.php" id="vaciar-carrito" class="boton-verder"
+                    >Confirmar</a
                   >
+
+                  </div>
+                  
                 </div>
     </di>
     
