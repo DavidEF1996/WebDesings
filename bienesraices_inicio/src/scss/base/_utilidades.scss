@@ -1,6 +1,10 @@
 .seccion {
-  margin-top: $separacion / 2;
-  margin-bottom: $separacion / 2;
+  margin-top: $separacion;
+  margin-bottom: $separacion;
+  h1 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 .contenido-centrado {
   max-width: 800px;

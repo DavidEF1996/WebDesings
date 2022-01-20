@@ -18,9 +18,9 @@
   textarea,
   select {
     // aplica a todos menos al tipo submit
-    padding: 1rem;
+    padding: 2rem;
     display: block;
-    width: 100%;
+    width: 70%;
     background-color: $blanco;
     border: 1px solid $gris;
     border-radius: 1rem;
@@ -54,4 +54,11 @@
       color: $negro;
     }
   }
+}
+.contenedor-nuevopro {
+  margin: 2rem;
+}
+
+.ocultar {
+  display: none;
 }

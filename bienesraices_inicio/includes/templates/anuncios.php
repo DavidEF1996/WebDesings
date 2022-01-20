@@ -10,9 +10,9 @@ $query = "SHOW TABLES FROM $nombre_bd";
 $resultado = mysqli_query($db,$query);
 
 ?> 
-<br>
-<h1>EN HM EVENTOS, ESTAMOS PARA SERVIRLE</h1>
-<br>
+
+<h1 class="<?php echo $inicio ?'ocultar':''; ?>" >EN HM EVENTOS, ESTAMOS PARA SERVIRLE</h1>
+
 <div class="contenedor-anuncios">
 
 <?php while ($fila = mysqli_fetch_row($resultado)):?>
@@ -48,6 +48,24 @@ $resultado = mysqli_query($db,$query);
         </div>
         <?php endwhile ?>
 </div>
+
+<section class="contenedor contenedor-nuevopro <?php echo $inicio ?'ocultar':''; ?>">
+
+
+  <form  class=" formulario formulario-producto-aparte">
+
+  <legend>Agregue el servicio o producto que necesite y no este arriba!!!</legend>
+
+
+  <label for="producto-aparte">Producto o Servicio </label>
+              
+                <textarea id="textArea"></textarea>
+
+                <input type="submit" value="agregar" class="boton-verder">
+
+  </form>
+ 
+</section>
 <?php
     mysqli_close($db);
     ?>

@@ -5,8 +5,8 @@ incluirTemplate('header');
 
 ?>
     
-    <main class="contenedor seccion contenido-centrado"> <!--Se crea el contenedor principal y usamos seccion para tener margin y padding, este esta creado en utilidades-->
-        <h1>Contacto</h1>
+    <main class="contenedor seccion contenido-centrado contenido-contacto"> <!--Se crea el contenedor principal y usamos seccion para tener margin y padding, este esta creado en utilidades-->
+    
 
         <div class="logo-formulario">
             <img src="AuxiliarImages/logoPequeno.png" alt="logo">

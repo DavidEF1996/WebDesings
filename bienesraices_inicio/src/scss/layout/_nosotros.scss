@@ -1,5 +1,6 @@
 .contenedor-nosotros {
   margin-bottom: 5rem;
+  padding: 2rem;
   @include tablet {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -8,6 +9,7 @@
     h2 {
       margin: 0;
       margin-bottom: 3rem;
+      font-style: italic;
       display: flex;
       justify-content: flex-start;
       font-weight: $regular;
@@ -15,10 +17,7 @@
     .imagen-nosotros {
       display: flex;
       align-items: center;
-    }
-    .imagen-nosotros {
-      display: flex;
-      align-items: center;
+      justify-content: center;
     }
   }
 }
@@ -31,6 +30,7 @@
 
 .texto-nosotros {
   font-weight: $regular;
+  text-align: justify;
   font-size: 2.2rem;
   margin: 0;
   padding-left: 1rem 0 3rem 0;
@@ -42,4 +42,13 @@
   .texto-nosotros {
     color: $blanco;
   }
+}
+
+#title_nosotros {
+  margin-bottom: 5rem;
+}
+
+.foto-chica {
+  width: 80%;
+  margin: 0 auto;
 }

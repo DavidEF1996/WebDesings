@@ -19,7 +19,7 @@ incluirTemplate('headerInicio', $inicio=true);
             RESPALDADOS POR PATRICIA RIOS "LA LEONA" Y HERMEL MENDOZA "LOCUTORES
             PROFESIONALES
           </h2>
-            <img
+            <img class="foto-chica"
               loading="lazy"
               src="build/img/nosotros.jpg"
               alt="texto de nosotros"
@@ -44,11 +44,7 @@ incluirTemplate('headerInicio', $inicio=true);
       </div>
     </main>
 
-    <section class="seccion contenedor">
-      <!--contiene todos los elementos de esta seccion-->
-      <h1>DECORACIÓN PARA TODO EVENTO</h1>
-
-   <?php 
+    <section class="seccion contenedor"> <h1>DECORACIÓN PARA TODO EVENTO</h1><?php 
      $limite = 3;
    include 'includes/templates/anuncios.php';
  
@@ -61,7 +57,7 @@ incluirTemplate('headerInicio', $inicio=true);
 
     <section class="imagen-contacto">
    
-      <h2>Porque en tu sueño cada detalle cuenta.</h2>
+      <h2>"Porque en tu sueño cada detalle cuenta"</h2>
       <p>
         Comunicate con nostros ahora!!
       </p>

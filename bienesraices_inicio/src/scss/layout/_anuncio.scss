@@ -1,3 +1,6 @@
+.contenedor-anuncios {
+  padding: 2rem;
+}
 @include tablet {
   .contenedor-anuncios {
     @include grid(3, 2rem);
@@ -138,5 +141,17 @@
   .table-responsive > .table > tbody > tr > td,
   .table-responsive > .table > tfoot > tr > td {
     white-space: nowrap;
+  }
+}
+
+table {
+  th {
+    text-align: center;
+  }
+  td {
+    text-align: center;
+    img {
+      margin: 0 auto;
+    }
   }
 }

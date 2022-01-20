@@ -1,6 +1,8 @@
 const listaProductos = document.querySelector(".productos");
 const contenedorCarrito = document.querySelector("#lista-carrito tbody");
 const carrito = document.querySelector("#carrito");
+const vaciarCarrito = document.querySelector("#vaciar-carrito");
+const formularioAparte = document.querySelector(".formulario-producto-aparte");
 let arregloProductos = [];
 
 principal();
@@ -13,8 +15,14 @@ function principal() {
       limpiar();
       crearFilaCarrito();
     }
-    /* limpiar();
-    crearFilaCarrito();*/
+
+    if (vaciarCarrito) {
+      vaciarCarrito.addEventListener("click", vaciar);
+    }
+
+    if (formularioAparte) {
+      formularioAparte.addEventListener("submit", agregarProductoVario);
+    }
   });
 
   if (carrito) {
@@ -107,37 +115,51 @@ function crearFilaCarrito() {
 function EliminarProducto(e) {
   e.stopPropagation();
 
-  limpiar();
+  Swal.fire({
+    title: "Desea eliminar este producto?",
+    text: "Si hay mas de dos, se disminuiran",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Confirmar",
+    cancelButtonText: "Cancelar",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire("Carrito Vaciado");
+      limpiar();
 
-  let arre = [];
-  if (e.target.classList.contains("borrar-curso")) {
-    const aux = e.target.getAttribute("data-id");
-    const nuevo = arregloProductos.map((produ) => {
-      if (produ.id === aux && produ.cantidad > 1) {
-        produ.cantidad--;
-        arre = [...arre, produ];
-        console.log("llegue primer if");
+      let arre = [];
+      if (e.target.classList.contains("borrar-curso")) {
+        const aux = e.target.getAttribute("data-id");
+        const nuevo = arregloProductos.map((produ) => {
+          if (produ.id === aux && produ.cantidad > 1) {
+            produ.cantidad--;
+            arre = [...arre, produ];
+            console.log("llegue primer if");
+          }
+        });
+
+        console.log("/");
+        console.log(arre);
+        console.log("/");
+
+        if (arre.length > 0) {
+          arre.cantidad--;
+          let arr = arregloProductos.filter((producto) => producto.id !== aux);
+          arregloProductos = [...arr, ...arre];
+          localStorage.setItem("produ", JSON.stringify(arregloProductos));
+          console.log("llegue segundo if");
+        } else {
+          let arr = arregloProductos.filter((producto) => producto.id !== aux);
+          arregloProductos = arr;
+          localStorage.setItem("produ", JSON.stringify(arregloProductos));
+          console.log("llegue tercero if");
+        }
       }
-    });
-
-    console.log("/");
-    console.log(arre);
-    console.log("/");
-
-    if (arre.length > 0) {
-      arre.cantidad--;
-      let arr = arregloProductos.filter((producto) => producto.id !== aux);
-      arregloProductos = [...arr, ...arre];
-      localStorage.setItem("produ", JSON.stringify(arregloProductos));
-      console.log("llegue segundo if");
-    } else {
-      let arr = arregloProductos.filter((producto) => producto.id !== aux);
-      arregloProductos = arr;
-      localStorage.setItem("produ", JSON.stringify(arregloProductos));
-      console.log("llegue tercero if");
+      crearFilaCarrito(arregloProductos);
     }
-  }
-  crearFilaCarrito(arregloProductos);
+  });
 }
 
 function almacenarMemoria() {
@@ -148,4 +170,42 @@ function limpiar() {
   while (contenedorCarrito.firstChild) {
     contenedorCarrito.removeChild(contenedorCarrito.firstChild);
   }
+}
+
+function vaciar(e) {
+  e.preventDefault();
+  Swal.fire({
+    title: "Desea vaciar el carrito de compras?",
+    text: "Se eliminaran los productos que ha seleccionado",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Confirmar",
+    cancelButtonText: "Cancelar",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire("Carrito Vaciado");
+      arregloProductos = [];
+      localStorage.setItem("produ", JSON.stringify(arregloProductos));
+      limpiar();
+      setTimeout(() => {}, 1000);
+    }
+  });
+}
+
+function agregarProductoVario(e) {
+  e.preventDefault();
+
+  // const textArea = document.querySelector();
+  let arregloProductos = JSON.parse(localStorage.getItem("produ")) || [];
+
+  const productoVario = {
+    imagen: "",
+    titulo: "Producto Vario",
+    id: arregloProductos[arregloProductos.length - 1].id + 1,
+    cantidad: 1,
+  };
+  arregloProductos = [...arregloProductos, productoVario];
+  localStorage.setItem("produ", JSON.stringify(arregloProductos));
 }
