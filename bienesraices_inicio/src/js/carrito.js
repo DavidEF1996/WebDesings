@@ -1,19 +1,25 @@
 const listaProductos = document.querySelector(".productos");
 const contenedorCarrito = document.querySelector("#lista-carrito tbody");
+const contenedorVarios = document.querySelector("#lista-Varios");
 const carrito = document.querySelector("#carrito");
+
+const carritoVarios = document.querySelector("#lista-Varios");
 const vaciarCarrito = document.querySelector("#vaciar-carrito");
 const formularioAparte = document.querySelector(".formulario-producto-aparte");
 let arregloProductos = [];
+let arregloVarios = [];
 
 principal();
 function principal() {
   document.addEventListener("DOMContentLoaded", () => {
     console.log("me estoy iniciando");
     arregloProductos = JSON.parse(localStorage.getItem("produ")) || [];
+    arregloVarios = JSON.parse(localStorage.getItem("varios")) || [];
     console.log(arregloProductos);
     if (contenedorCarrito) {
       limpiar();
       crearFilaCarrito();
+      crearFilaVarios();
     }
 
     if (vaciarCarrito) {
@@ -27,6 +33,10 @@ function principal() {
 
   if (carrito) {
     carrito.addEventListener("click", EliminarProducto);
+  }
+
+  if (carritoVarios) {
+    carritoVarios.addEventListener("click", EliminarProductoVario);
   }
   if (listaProductos) {
     console.log("Existen");
@@ -115,22 +125,20 @@ function crearFilaCarrito() {
 function EliminarProducto(e) {
   e.stopPropagation();
 
-  Swal.fire({
-    title: "Desea eliminar este producto?",
-    text: "Si hay mas de dos, se disminuiran",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Confirmar",
-    cancelButtonText: "Cancelar",
-  }).then((result) => {
-    if (result.isConfirmed) {
-      Swal.fire("Carrito Vaciado");
-      limpiar();
-
-      let arre = [];
-      if (e.target.classList.contains("borrar-curso")) {
+  let arre = [];
+  if (e.target.classList.contains("borrar-curso")) {
+    Swal.fire({
+      title: "Desea eliminar este producto?",
+      text: "Si hay mas de dos, se disminuiran",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Confirmar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        limpiar();
         const aux = e.target.getAttribute("data-id");
         const nuevo = arregloProductos.map((produ) => {
           if (produ.id === aux && produ.cantidad > 1) {
@@ -158,8 +166,9 @@ function EliminarProducto(e) {
         }
       }
       crearFilaCarrito(arregloProductos);
-    }
-  });
+      crearFilaVarios(arregloVarios);
+    });
+  }
 }
 
 function almacenarMemoria() {
@@ -169,6 +178,10 @@ function almacenarMemoria() {
 function limpiar() {
   while (contenedorCarrito.firstChild) {
     contenedorCarrito.removeChild(contenedorCarrito.firstChild);
+  }
+
+  while (contenedorVarios.firstChild) {
+    contenedorVarios.removeChild(contenedorVarios.firstChild);
   }
 }
 
@@ -196,16 +209,86 @@ function vaciar(e) {
 
 function agregarProductoVario(e) {
   e.preventDefault();
+  Swal.fire({
+    title: "Desea agregar este producto?",
+    text: "",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Confirmar",
+    cancelButtonText: "Cancelar",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire("Agregado Correctamente!");
+      setTimeout(() => {}, 500);
+      let arregloProductos = JSON.parse(localStorage.getItem("produ")) || [];
+      const textArea = document.querySelector("#textArea").value;
+      const varios = {
+        id: new Date().getMilliseconds(),
+        descripcion: textArea,
+      };
 
-  // const textArea = document.querySelector();
-  let arregloProductos = JSON.parse(localStorage.getItem("produ")) || [];
+      arregloVarios.push(varios);
 
-  const productoVario = {
-    imagen: "",
-    titulo: "Producto Vario",
-    id: arregloProductos[arregloProductos.length - 1].id + 1,
-    cantidad: 1,
-  };
-  arregloProductos = [...arregloProductos, productoVario];
-  localStorage.setItem("produ", JSON.stringify(arregloProductos));
+      localStorage.setItem("varios", JSON.stringify(arregloVarios));
+      formularioAparte.reset();
+    }
+  });
+}
+
+function crearFilaVarios() {
+  //limpiar();
+  console.log(arregloVarios);
+  arregloVarios.forEach((element) => {
+    const fila = document.createElement("tr");
+    fila.innerHTML = `
+        
+      <td> ${element.descripcion}</td>
+      
+
+
+      <td> <a href="#" class="borrar-vario boton-rojo" data-id="${element.id}"> X </a> </>
+        `;
+    if (contenedorVarios) {
+      contenedorVarios.appendChild(fila);
+    }
+  });
+}
+
+function EliminarProductoVario(e) {
+  e.stopPropagation();
+
+  let arre = [];
+  if (e.target.classList.contains("borrar-vario")) {
+    Swal.fire({
+      title: "Desea eliminar este producto?",
+      text: "Si hay mas de dos, se disminuiran",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Confirmar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        limpiar();
+        const aux = e.target.getAttribute("data-id");
+        console.log("lleg1");
+        const nuevo = arregloVarios.map((produ) => {
+          if (produ.id === Number(aux)) {
+            console.log("llego2");
+            let arr = arregloVarios.filter(
+              (producto) => producto.id !== Number(aux)
+            );
+            console.log(arr);
+            arregloVarios = arr;
+            localStorage.setItem("varios", JSON.stringify(arregloVarios));
+          }
+        });
+      }
+      crearFilaCarrito(arregloProductos);
+      crearFilaVarios(arregloVarios);
+    });
+  }
 }

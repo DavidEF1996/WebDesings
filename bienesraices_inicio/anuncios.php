@@ -25,6 +25,21 @@ incluirTemplate('header');
                     <tbody></tbody>
                   </table>
 
+
+                  <h3>Productos especiales</h3>
+                  <table id="lista-Varios" class="u-full-width">
+                    <thead>
+                      <tr>
+                        <th>Producto</th>
+                      
+                        <th>Eliminar</th>
+                   
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+
                   <div class="botones-carrito">
 
                   <a href="#p" id="vaciar-carrito" class="boton-rojo"
