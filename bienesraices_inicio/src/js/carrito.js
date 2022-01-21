@@ -2,7 +2,7 @@ const listaProductos = document.querySelector(".productos");
 const contenedorCarrito = document.querySelector("#lista-carrito tbody");
 const contenedorVarios = document.querySelector("#lista-Varios");
 const carrito = document.querySelector("#carrito");
-
+const formulario = document.querySelector(".formulario");
 const carritoVarios = document.querySelector("#lista-Varios");
 const vaciarCarrito = document.querySelector("#vaciar-carrito");
 const formularioAparte = document.querySelector(".formulario-producto-aparte");
@@ -30,6 +30,10 @@ function principal() {
       formularioAparte.addEventListener("submit", agregarProductoVario);
     }
   });
+
+  if (formulario) {
+    formulario.addEventListener("submit", cotizarCostos);
+  }
 
   if (carrito) {
     carrito.addEventListener("click", EliminarProducto);
@@ -69,11 +73,13 @@ function datos(valores) {
   }).then((result) => {
     if (result.isConfirmed) {
       Swal.fire("Agregado Correctamente!");
+      console.log(valores);
       const productoSeleccionado = {
         imagen: valores.querySelector(".imagePrincipal").src,
         titulo: valores.querySelector("h1").textContent,
         id: valores.querySelector("a").getAttribute("data-id"),
         cantidad: valores.querySelector("#cantidad").value,
+        precio: valores.querySelector("#precio-pro").textContent,
       };
       const existe = arregloProductos.some(
         (produ) => produ.id === productoSeleccionado.id
@@ -200,6 +206,9 @@ function vaciar(e) {
     if (result.isConfirmed) {
       Swal.fire("Carrito Vaciado");
       arregloProductos = [];
+      arregloVarios = [];
+      localStorage.setItem("varios", JSON.stringify(arregloVarios));
+      setTimeout(() => {}, 100);
       localStorage.setItem("produ", JSON.stringify(arregloProductos));
       limpiar();
       setTimeout(() => {}, 1000);
@@ -291,4 +300,58 @@ function EliminarProductoVario(e) {
       crearFilaVarios(arregloVarios);
     });
   }
+}
+
+/////////////////////////
+function cotizarCostos(e) {
+  e.preventDefault();
+
+  const nombreCliente = document.querySelector("#nombre").value;
+  const numeroTelefono = document.querySelector("#telefono").value;
+
+  if (nombreCliente === "" || numeroTelefono === "") {
+    console.log("Nombres obligatorios");
+    return;
+  }
+
+  const recibirProductos = (arregloProductos =
+    JSON.parse(localStorage.getItem("produ")) || []);
+
+  const recibirVarios = (arregloVarios =
+    JSON.parse(localStorage.getItem("varios")) || []);
+  let total = 0;
+  recibirProductos.forEach((element) => {
+    total += Number(element.cantidad) * Number(element.precio);
+  });
+
+  const factura = {
+    nombreCliente,
+    numeroTelefono,
+    total,
+    recibirVarios,
+  };
+
+  enviarMensaje(factura);
+}
+
+function enviarMensaje(factura) {
+  console.log(factura);
+
+  //var url = "whatsapp://send?text="+encodeURIComponent("hola que hace")+"&phone="+encodeURIComponent(0982828944)
+  const url2 =
+    "https://wa.me/" +
+    encodeURIComponent(593992837228) +
+    "/?text=" +
+    encodeURI(
+      "Cliente: " +
+        factura.nombreCliente +
+        "\n" +
+        "Telefono: " +
+        factura.numeroTelefono +
+        "\n" +
+        "Detalle de compras: " +
+        factura.recibirVarios.toString()
+    );
+
+  window.open(url2);
 }

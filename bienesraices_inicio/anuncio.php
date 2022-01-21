@@ -106,6 +106,7 @@ incluirTemplate('header');
                         <p >Cantidad:</p>
                         <input id = "cantidad" type="number" class="cantidad"  min="1" max="50" />
                         </div>
+                        <div id="precio-pro" style="visibility: hidden"><?php echo $propiedad["precio_$aux"] ?></div>
                         <p class="cantidad">Aquí va una descripción del producto </p>
                         <a
                             href="#"

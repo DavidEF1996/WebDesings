@@ -27,11 +27,11 @@ incluirTemplate('header');
                 <input type="tel" placeholder="Escribe tu telefono..." id="telefono">
 
           
+                <input type="submit" value="enviar" class="boton-verder">
             </fieldset>
 
         
 
-            <input type="submit" value="enviar" class="boton-verder">
         </form>
     </main>
 

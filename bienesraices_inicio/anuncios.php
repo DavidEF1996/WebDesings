@@ -17,6 +17,7 @@ incluirTemplate('header');
                         <th>Producto</th>
                         <th>Nombre</th>
                         <th>Cantidad</th>
+                        <th style="display: none">Precio</th>
                         <th>Eliminar</th>
                    
                         <th></th>
@@ -42,7 +43,7 @@ incluirTemplate('header');
 
                   <div class="botones-carrito">
 
-                  <a href="#p" id="vaciar-carrito" class="boton-rojo"
+                  <a href="#" id="vaciar-carrito" class="boton-rojo"
                     >Cancelar</a
                   >
                 
