@@ -12,11 +12,11 @@ if ($_SERVER['REQUEST_METHOD']==='POST'){
         
         $auxiliar = substr($nombre_tabla,0 ,3);
         $query = " create TABLE $nombre_tabla ( 
-        id_$auxiliar int(11) AUTO_INCREMENT PRIMARY KEY,
-        desc_$auxiliar VARCHAR(30) NOT NULL,
-        precio_$auxiliar Decimal(6,2) DEFAULT NULL,
-        unidad_medida_$auxiliar varchar(100) NOT NULL
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4";
+                    id_$auxiliar int(11) AUTO_INCREMENT PRIMARY KEY,
+                    desc_$auxiliar VARCHAR(30) NOT NULL,
+                    precio_$auxiliar Decimal(6,2) DEFAULT NULL,
+                    unidad_medida_$auxiliar varchar(100) NOT NULL
+                    );";
         $resultado  = mysqli_query($db,$query);
         if($resultado){
            header('Location: /admin?mensaje=Creado Correctamente&registrado=1');
@@ -25,4 +25,26 @@ if ($_SERVER['REQUEST_METHOD']==='POST'){
 
 
 }
+
+require '../../includes/funciones.php';
+incluirTemplate('header');
+?>
+<main class="contenedor seccion">
+    <h1>Crear</h1>
+    <a href="/admin/"  class="boton boton-verder">Volver</a>
+    <?php foreach($errores as $error): ?>
+        
+        <div class="alerta error">
+            <?php echo $error; ?>
+        </div>
+    <?php endforeach; ?>
+    <form class="formulario" name="formulario" method="POST" action="/admin/propiedades/crear_tabla.php">
+        <legend>Insertar nombre de la nueva sección de productos</legend>
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre_tabla" name="nombre_tabla" placeholder="Ej: Cristaleria, Comida, etc." value="<?php echo $nombre_tabla ?>">
+        <input type="submit" value="Crear SECCIÓN" class="boton boton-verder"  >
+    </form>
+</main>
+<?php
+incluirTemplate('footer');
 ?>

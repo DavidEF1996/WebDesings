@@ -29,32 +29,40 @@ $mensaje = $_GET['registrado']??null;
 require '../includes/funciones.php';
 incluirTemplate('header');
 
+
+?>
+ <?php 
+    $nombre_bd = 'hm_eventos';
+    $query_tablas = "SHOW TABLES FROM $nombre_bd";
+    $resultado_tablas = mysqli_query($db,$query_tablas);
 ?>
 <main class="contenedor seccion">
     <h1>Administrador</h1>
 
-    <a href="/admin/propiedades/crear.php"  class="boton boton-verder">Agregar</a>
+    <a href="/admin/propiedades/crear_tabla.php"  class="boton boton-verder">Agregar Sección</a>
 
     <?php if(intval( $mensaje)===1): ?>
         <p class="alerta exito">Producto Insertado Correctamente</p>
         <?php elseif (intval($mensaje)===2):?>
             <p class="alerta exito">Producto Actualizado Correctamente</p>
      <?php endif;?>
+<?//php echo $resultado_tablas ?>
+      
+        <div class="menuProductos">
+            
+            <?php while ($fila = mysqli_fetch_row($resultado_tablas)):?> 
+                <?php $producto = "{$fila[0]}" ?>
 
+                <form method="GET" name= <?php echo $producto?> action="/admin/index.php">
+                        <input type="hidden" name="id" value= <?php echo $producto?> >
+                        <input type="submit"  value=<?php echo strtoupper($producto)?> >
+                </form>
+                        
+            <?php endwhile ?>
+        </div>
+    
 
- <div class="menuProductos">
-  
-  <form method="GET" name="pasteleria" action="/admin/index.php">
-          <input type="hidden" name="id" value="pasteleria">
-          <input type="submit"  value="Pasteleria" >
-      </form>
-        <form method="GET" name="licores" action="/admin/index.php">
-          <input type="hidden" name="id" value="licores">
-          <input type="submit"  value="Licores" >
-      </form>
-
-</div>
-
+<a href="/admin/propiedades/crear.php"  class="boton boton-verder">Agregar Producto</a>
 
         <table>
             <thead>
