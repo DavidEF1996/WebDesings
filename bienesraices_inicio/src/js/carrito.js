@@ -338,22 +338,38 @@ function cotizarCostos(e) {
 }
 
 function enviarMensaje(factura) {
-  console.log(factura);
-  console.log(typeof(recibirVarios));
+
+  let detalleVarios = "";
+  let detalleProductos = "";
+  arregloProductos.forEach((element) => {
+    detalleProductos += element.titulo + "\n";
+  });
+
+  factura.recibirVarios.forEach((element) => {
+    detalleVarios += element.descripcion + "\n";
+  });
   //var url = "whatsapp://send?text="+encodeURIComponent("hola que hace")+"&phone="+encodeURIComponent(0982828944)
   const url2 =
     "https://wa.me/" +
-    encodeURIComponent(593990703221) +
+    encodeURIComponent(593989440170) +
     "/?text=" +
     encodeURI(
       "Cliente: " +
         factura.nombreCliente +
-        "\n" +
+        "\n\n" +
         "Telefono: " +
         factura.numeroTelefono +
+        "\n\n" +
+        "Detalle Productos: " +
         "\n" +
-        "Detalle de compras: " +
-        factura.recibirVarios.toString()
+        detalleProductos +
+        "\n\n" +
+        "Total sin Productos agregados manualmente: " +
+        factura.total +
+        "\n\n" +
+        "Detalle de Productos agregados por el cliente: " +
+        "\n" +
+        detalleVarios
     );
 
   window.open(url2);
