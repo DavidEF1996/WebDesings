@@ -3,6 +3,7 @@ const contenedorCarrito = document.querySelector("#lista-carrito tbody");
 const contenedorVarios = document.querySelector("#lista-Varios");
 const carrito = document.querySelector("#carrito");
 const formulario = document.querySelector(".formulario");
+const formulario_crear = document.querySelector(".formulario");
 const carritoVarios = document.querySelector("#lista-Varios");
 const vaciarCarrito = document.querySelector("#vaciar-carrito");
 const formularioAparte = document.querySelector(".formulario-producto-aparte");
@@ -34,7 +35,9 @@ function principal() {
   if (formulario) {
     formulario.addEventListener("submit", cotizarCostos);
   }
-
+if (formulario_crear){
+  formulario_crear.addEventListener("submit",datos);
+}
   if (carrito) {
     carrito.addEventListener("click", EliminarProducto);
   }
@@ -336,11 +339,11 @@ function cotizarCostos(e) {
 
 function enviarMensaje(factura) {
   console.log(factura);
-
+  console.log(typeof(recibirVarios));
   //var url = "whatsapp://send?text="+encodeURIComponent("hola que hace")+"&phone="+encodeURIComponent(0982828944)
   const url2 =
     "https://wa.me/" +
-    encodeURIComponent(593992837228) +
+    encodeURIComponent(593990703221) +
     "/?text=" +
     encodeURI(
       "Cliente: " +

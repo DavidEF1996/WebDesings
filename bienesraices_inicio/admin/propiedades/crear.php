@@ -16,8 +16,13 @@ if ($_SERVER['REQUEST_METHOD']==='POST'){
     $nombre =mysqli_real_escape_string($db, $_POST['nombre']);
     $precio =mysqli_real_escape_string($db, $_POST['precio']);
     $opcionesmedida =mysqli_real_escape_string($db, $_POST['opcionesmedida']);
+    echo $opcionestip;
+    echo $nombre ;
+    echo $precio;
+    echo $opcionesmedida;
 
     if(!$opcionestipo){
+        alert($opcionestipo);
         $errores[]="Seleccione el tipo de producto a Insertar";
     }
     if(!$nombre){
@@ -31,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD']==='POST'){
     }
 
     if(empty($errores)){
+        alert($opcionestipo);
         $auxiliar = substr($opcionestipo,0 ,3);
         $query = "Insert into $opcionestipo(desc_$auxiliar, precio_$auxiliar, unidad_medida_$auxiliar) values ('$nombre', '$precio', '$opcionesmedida')";
         $resultado  = mysqli_query($db,$query);
@@ -51,6 +57,12 @@ require '../../includes/funciones.php';
 incluirTemplate('header');
 
 ?>
+<?php
+    $nombre_bd = 'hm_eventos';
+    $query_tablas = "SHOW TABLES FROM $nombre_bd";
+    $resultado_tablas = mysqli_query($db,$query_tablas); 
+
+?>
 <main class="contenedor seccion">
     <h1>Crear</h1>
     <a href="/admin/"  class="boton boton-verder">Volver</a>
@@ -63,34 +75,40 @@ incluirTemplate('header');
         </div>
     <?php endforeach; ?>
  
-    <form class="formulario" name="formulario" method="POST" action="/admin/propiedades/crear.php">
+    <form class="formulario_crear" name="formulario" method="POST" action="/admin/propiedades/crear.php">
  
- <legend>Insertar productos</legend>
- <label for="opcionestipo">Seleccione el tipo de producto: </label>
-     <select name="opcionestipo">
-         <option value="">--Seleccione--</option>
-         <option <?php echo $opcionestipo==="licores"?'selected':'' ?> value="licores">Licores</option>
-         <option <?php echo $opcionestipo==="pasteleria"?'selected':'' ?> value="pasteleria">Pastelería</option>
-     </select>
+        <legend>Insertar productos</legend>
+        <label for="opcionestipo" name  ="opcionestipo">Seleccione el tipo de producto: </label>  
+        
+        <select name="opcionestipo">
+            
+            <?php while ($fila = mysqli_fetch_row($resultado_tablas)):?> 
+                <?php $producto = "{$fila[0]}" ?>
+                <!--<option value="<?php echo $producto ?>"><?php echo $producto ?></option>-->
+                <option  value="<?php echo $producto?>" > <?php echo strtoupper($producto)?> </option>
+            <?php endwhile ?>
+        </select>
+     
 
- <label for="nombre">Nombre</label>
- <input type="text" id="nombre" name="nombre" placeholder="Ingrese el nombre del producto" value="<?php echo $nombre ?>">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Ingrese el nombre del producto" value="<?php echo $nombre ?>">
 
- <label for="precio">Precio</label>
- <input type="number" step=0.01 id="precio" name="precio" placeholder="Ingrese el precio del producto" value="<?php echo $precio ?>">
+        <label for="precio">Precio</label>
+        <input type="number" step=0.01 id="precio" name="precio" placeholder="Ingrese el precio del producto" value="<?php echo $precio ?>">
 
- <label for="opcionesmedida">Unidad de Medida</label>
- <select  name="opcionesmedida">
-         <option value="" >--Seleccione--</option>
-         <option <?php echo $opcionesmedida==="litro"?'selected':'' ?> value="litro">Litro</option>
-         <option <?php echo $opcionesmedida==="unidad"?'selected':'' ?> value="unidad">Unidad</option>
-     </select>
-
-
- <input type="submit" value="Crear PRODUCTO" class="boton boton-verder"  >
-
+        <label for="opcionesmedida">Unidad de Medida</label>
+        <input type="text" id="opcionesmedida" name="opcionesmedida" placeholder="Ej. porcion, litro, caja, etc."  value="<?php echo $opcionesmedida ?>">
+        
+        <label for="opcionesmedida">Foto del producto</label>
+        <form action="photo.php" method="post" enctype="multipart/form-data">
+            Elegir archivo:
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            
+        </form>
+            
+            
     </form>
-
+    <input type="submit" value="Crear PRODUCTO" class="boton boton-verder"  >
 </main>
 
 <?php
