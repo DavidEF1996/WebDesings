@@ -27,6 +27,7 @@ $opcionestipo = $tabla;
     $opcionesmedida = $producto['unidad_medida_'.$aux];
 
 if ($_SERVER['REQUEST_METHOD']==='POST'){
+   
 
   
     $opcionestipo =mysqli_real_escape_string($db, $_POST['opcionestipo']);
@@ -90,6 +91,11 @@ incluirTemplate('header');
          <option value="">--Seleccione--</option>
          <option <?php echo $opcionestipo==="licores"?'selected':'' ?> value="licores">Licores</option>
          <option <?php echo $opcionestipo==="pasteleria"?'selected':'' ?> value="pasteleria">Pastelería</option>
+         <option <?php echo $opcionestipo==="amplificacion"?'selected':'' ?> value="amplificacion">Amplificación</option>
+         <option <?php echo $opcionestipo==="artistas"?'selected':'' ?> value="artistas">Artistas</option>
+         <option <?php echo $opcionestipo==="decoracion"?'selected':'' ?> value="decoracion">Decoración</option>
+         <option <?php echo $opcionestipo==="personal"?'selected':'' ?> value="personal">Personal</option>
+         <option <?php echo $opcionestipo==="varios"?'selected':'' ?> value="varios">Varios</option>
      </select>
 
  <label for="nombre">Nombre</label>

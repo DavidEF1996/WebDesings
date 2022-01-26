@@ -59,6 +59,7 @@
 }
 
 .barra2 {
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -149,4 +150,30 @@
   visibility: visible; //esto muestra el menu reemplaza el codigo de arriba ya que permite animar
   opacity: 1; //cambia la opacidad para que se muestre
   height: auto;
+}
+
+.menuProductos {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  gap: 0.5rem;
+
+  //width: 120rem;
+  //max-width: 100%;
+
+  @include tablet {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .items-listas {
+    .item {
+      display: block;
+      width: 15rem;
+    }
+  }
 }

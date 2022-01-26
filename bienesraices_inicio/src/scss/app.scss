@@ -1,5 +1,5 @@
 @import "base/normalize";
-@import "internas/admin.scss";
+
 @import "internas/skeleton.scss";
 @import "base/variables";
 @import "base/mixins";
@@ -7,6 +7,7 @@
 @import "base/utilidades";
 @import "base/botones";
 @import "base/darkmode";
+@import "internas/admin.scss";
 
 /** UI **/
 @import "layout/header";
@@ -20,3 +21,4 @@
 @import "layout/testimoniales";
 @import "layout/nosotros";
 @import "layout/formulario";
+@import "layout/redes";

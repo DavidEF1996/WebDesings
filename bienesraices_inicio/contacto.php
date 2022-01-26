@@ -14,7 +14,7 @@ incluirTemplate('header');
 
         <h2>LLene el formulario para confirmar su compra</h2>
 
-        <form class="formulario">
+        <form class="formulario-carrito">
             <fieldset>
                 <!--Para un grupo de campos se usa fieldset-->
                 <legend>Datos:</legend>

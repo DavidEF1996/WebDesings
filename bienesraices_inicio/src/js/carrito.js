@@ -2,8 +2,8 @@ const listaProductos = document.querySelector(".productos");
 const contenedorCarrito = document.querySelector("#lista-carrito tbody");
 const contenedorVarios = document.querySelector("#lista-Varios");
 const carrito = document.querySelector("#carrito");
-const formulario = document.querySelector(".formulario");
-const formulario_crear = document.querySelector(".formulario");
+const formulario = document.querySelector(".formulario-carrito");
+
 const carritoVarios = document.querySelector("#lista-Varios");
 const vaciarCarrito = document.querySelector("#vaciar-carrito");
 const formularioAparte = document.querySelector(".formulario-producto-aparte");
@@ -35,10 +35,7 @@ function principal() {
   if (formulario) {
     formulario.addEventListener("submit", cotizarCostos);
   }
-/*if (formulario_crear){
 
-  formulario_crear.addEventListener("submit",datos);
-}*/
   if (carrito) {
     carrito.addEventListener("click", EliminarProducto);
   }
@@ -339,7 +336,6 @@ function cotizarCostos(e) {
 }
 
 function enviarMensaje(factura) {
-
   let detalleVarios = "";
   let detalleProductos = "";
   arregloProductos.forEach((element) => {
@@ -373,5 +369,10 @@ function enviarMensaje(factura) {
         detalleVarios
     );
 
+  arregloProductos = [];
+  arregloVarios = [];
+  localStorage.setItem("varios", JSON.stringify(arregloVarios));
+  setTimeout(() => {}, 100);
+  localStorage.setItem("produ", JSON.stringify(arregloProductos));
   window.open(url2);
 }

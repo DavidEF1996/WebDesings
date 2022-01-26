@@ -17,10 +17,11 @@
             en los globales, y tiene otra contenido-header para darle estilos individuales-->
 
         <div class="barra2">
+          
           <!--Este div contiene la barra de navegacion-->
           <a href="index.php">
             <!--Se considera un estandar que al dar click a la imagen lleve a la  pagina principal, entonces si damos click va a ir a la pagina principal-->
-            <p>HM EVENTOS</p>
+            <h1>HM EVENTOS</h1>
             <!--Imagen de fondo y svg es buena opcion-->
           </a>
 
@@ -38,7 +39,7 @@
               <a href="productos.php">Productos</a>
              
            
-              <a href="contacto.php">Contacto</a>
+            
              
 
               <a href="anuncios.php">

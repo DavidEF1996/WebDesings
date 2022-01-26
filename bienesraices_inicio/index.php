@@ -61,7 +61,12 @@ incluirTemplate('headerInicio', $inicio=true);
       <p>
         Comunicate con nostros ahora!!
       </p>
-      <a href="contacto.php" class="boton-rojo">Contactanos</a>
+     
+      <div class="redes">
+      <a href="#" class="fa fa-facebook"></a>
+      <a href="#" class="fa fa-instagram"></a>
+      </div>
+     
 
       <h3>O, aún mejor, ¡ven a visitarnos!</h3>
       <p>Av. los Andes y calle Cajas.</p>

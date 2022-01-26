@@ -16,7 +16,8 @@
 .anuncio {
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  border: 0.7rem dotted;
+  border: 0.7rem groove;
+  border-radius: 15px 50px;
   border-color: rgb(124, 87, 87);
   border-image-width: 1;
   border-image-slice: 10%;
@@ -107,6 +108,7 @@
   min-height: 0.01%;
   overflow-x: auto;
   text-align: center;
+  font-size: 1.7rem;
   table {
     img {
       width: 40rem;
@@ -143,8 +145,14 @@
     white-space: nowrap;
   }
 }
-
 table {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: auto;
+
+  @include tablet {
+    width: 120rem;
+  }
   th {
     text-align: center;
   }
@@ -152,6 +160,33 @@ table {
     text-align: center;
     img {
       margin: 0 auto;
+    }
+  }
+}
+
+.formulario-eliminar {
+  background-color: transparent;
+
+  .eliminar {
+    width: auto;
+    height: 5rem;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 1rem 3rem;
+    text-align: center;
+    margin-top: $separacion/2;
+    display: block;
+    border-radius: 2rem;
+    line-height: 2rem;
+
+    &:hover {
+      background-color: darken(
+        red,
+        5
+      ); // da el efecto oscuro cuando nos posicionamos en un boton
+      cursor: pointer;
     }
   }
 }

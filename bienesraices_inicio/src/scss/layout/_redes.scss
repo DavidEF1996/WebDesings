@@ -1,0 +1,39 @@
+.fa {
+  padding: 2rem;
+  font-size: 2rem;
+  width: auto;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 30%;
+}
+yy
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  background: #3b5998;
+  color: white;
+  margin-right: 1rem;
+}
+
+/* Twitter */
+.fa-twitter {
+  background: #55acee;
+  color: white;
+}
+
+.fa-instagram {
+  background-color: rgb(216, 63, 152);
+  color: white;
+}
+
+.redes {
+  display: flex;
+  column-gap: 2rem;
+}

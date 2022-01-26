@@ -39,8 +39,12 @@ incluirTemplate('header');
 <main class="contenedor seccion">
     <h1>Administrador</h1>
 
-    <a href="/admin/propiedades/crear_tabla.php"  class="boton boton-verder">Agregar Sección</a>
+    <a href="/admin/propiedades/crear_tabla.php" style="margin-left: 1rem;" class="boton boton-verder">Agregar Sección</a>
+    <a href="/admin/propiedades/crear.php"  class="boton boton-verder">Agregar Producto</a>
 
+    <br>
+    <br>
+    <h4 style="margin-left: 2rem; font-weight: bold; font-size: 1.8rem;">Opciones:</h4>
     <?php if(intval( $mensaje)===1): ?>
         <p class="alerta exito">Producto Insertado Correctamente</p>
       
@@ -49,23 +53,22 @@ incluirTemplate('header');
      <?php endif;?>
 <?//php echo $resultado_tablas ?>
       
-        <div class="menuProductos" >
+        <div class="menuProductos " >
             
             <?php while ($fila = mysqli_fetch_row($resultado_tablas)):?> 
                 <?php $producto = "{$fila[0]}" ?>
 
-                <form method="GET" name= <?php echo $producto?> action="/admin/index.php">
+                <form method="GET" class="items-listas" name= <?php echo $producto?> action="/admin/index.php">
                         <input type="hidden" name="id" value= <?php echo $producto?> >
-                        <input type="submit"  value=<?php echo strtoupper($producto)?> >
+                        <input type="submit" class="item"  value=<?php echo strtoupper($producto)?> >
                 </form>
                         
             <?php endwhile ?>
         </div>
     
+<div>
 
-<a href="/admin/propiedades/crear.php"  class="boton boton-verder">Agregar Producto</a>
-
-        <table>
+        <table class="contenedor">
             <thead>
                 <tr>
                 <th>ID</th>
@@ -84,11 +87,11 @@ incluirTemplate('header');
                         <td><?php echo $propiedad['unidad_medida_'.$aux]; ?></td>
                         <td>
                             <div>
-                                  <form method="POST" class="w-100" name="formu" action="#">
+                                  <form method="POST"  class="formulario-eliminar" name="formu" action="#">
                                      <input type="hidden" name="id_eliminar" value="<?php echo $propiedad['id_'.$aux];?>">
-                                     <input type="submit" class="boton-rojo-block" value="Eliminar">
+                                     <input type="submit" class="eliminar boton-rojo-block" value="Elim">
                             </form>
-                            <a href="propiedades/actualizar.php?id=<?php echo $propiedad['id_'.$aux];?>&tabla=<?php echo $tipoProductoSeleccionado?>" class="boton-amarillo-block">Actualizar</a>
+                            <a href="propiedades/actualizar.php?id=<?php echo $propiedad['id_'.$aux];?>&tabla=<?php echo $tipoProductoSeleccionado?>" class="boton-amarillo">Act</a>
                       </div>
                           
                            
@@ -103,6 +106,7 @@ incluirTemplate('header');
             
 
         </table>
+        </div>
         
 </main>
 
