@@ -1,6 +1,7 @@
 <?php
 
 require '../../includes/config/database.php';
+
 $db = conectarBD();
 
 $errores=[];
@@ -9,20 +10,23 @@ $opcionestipo = '';
     $precio = '';
     $opcionesmedida = '';
 
-if ($_SERVER['REQUEST_METHOD']==='POST'){
+    
+    
 
+if ($_SERVER['REQUEST_METHOD']==='POST'  ){
+    /*echo "<prep>";
+    var_dump($_FILES);
+    echo "</prep>";
+    //exit;*/
    
     $opcionestipo =mysqli_real_escape_string($db, $_POST['opcionestipo']);
     $nombre =mysqli_real_escape_string($db, $_POST['nombre']);
     $precio =mysqli_real_escape_string($db, $_POST['precio']);
     $opcionesmedida =mysqli_real_escape_string($db, $_POST['opcionesmedida']);
-    echo $opcionestip;
-    echo $nombre ;
-    echo $precio;
-    echo $opcionesmedida;
-
+    $image = $_FILES['imagen']; 
+    //echo $image;
     if(!$opcionestipo){
-        alert($opcionestipo);
+        //alert($opcionestipo);
         $errores[]="Seleccione el tipo de producto a Insertar";
     }
     if(!$nombre){
@@ -35,21 +39,50 @@ if ($_SERVER['REQUEST_METHOD']==='POST'){
         $errores[]="Seleccione el tipo de unidad del producto";
     }
 
+    if(!$image['name']){
+        $errores[]="La imagen es obligartoria";
+    }
+
+    if ($image["size"] > 500000) {
+        $errores[]= "Perdon pero el archivo es muy pesado";
+        
+    }
     if(empty($errores)){
-        alert($opcionestipo);
+      
+        $carpeta_imagenes = "../../AuxiliarImages/Productos/$opcionestipo/$nombre/";
+        if(!is_dir($carpeta_imagenes)){
+            echo "debe crear el directorio";
+            mkdir($carpeta_imagenes);
+        }
         $auxiliar = substr($opcionestipo,0 ,3);
+        $nombre_imagen = "$auxiliar".rand().".jpg";
+        $confirm_photo =0;
+       if(move_uploaded_file($image['tmp_name'],$carpeta_imagenes.$nombre_imagen)){
+        $confirm_photo =1;
+       }else{
+        $confirm_photo =2;
+       }
+            
         $query = "Insert into $opcionestipo(desc_$auxiliar, precio_$auxiliar, unidad_medida_$auxiliar) values ('$nombre', '$precio', '$opcionesmedida')";
         $resultado  = mysqli_query($db,$query);
-        if($resultado){
-           header('Location: /admin?mensaje=Creado Correctamente&registrado=1');
+            
+            if ( $resultado) {
+                header('Location: /admin?mensaje=Creado Correctamente&registrado=1');
+                //echo "El archivo ". basename( $_FILES["fileToUpload"]["name"]). " Se subio correctamente";
+            } else {
+                echo "Error al cargar el archivo o al crear el producto";
+            
+            
         }
+        
+
+       
     }
 
  
 
  
- 
- 
+    
 }
 
 
@@ -75,7 +108,7 @@ incluirTemplate('header');
         </div>
     <?php endforeach; ?>
  
-    <form class="formulario_crear" name="formulario" method="POST" action="/admin/propiedades/crear.php">
+    <form class="formulario_crear" name="formulario_crear" method="POST" action="/admin/propiedades/crear.php" enctype="multipart/form-data">
  
         <legend>Insertar productos</legend>
         <label for="opcionestipo" name  ="opcionestipo">Seleccione el tipo de producto: </label>  
@@ -98,17 +131,15 @@ incluirTemplate('header');
 
         <label for="opcionesmedida">Unidad de Medida</label>
         <input type="text" id="opcionesmedida" name="opcionesmedida" placeholder="Ej. porcion, litro, caja, etc."  value="<?php echo $opcionesmedida ?>">
+        <label for="imagen">Imagen del producto</label>
+        <input type="file" name="imagen" id="imagen" accept="image/jpeg, image/png" >
+
         
-        <label for="opcionesmedida">Foto del producto</label>
-        <form action="photo.php" method="post" enctype="multipart/form-data">
-            Elegir archivo:
-            <input type="file" name="fileToUpload" id="fileToUpload">
-            
-        </form>
-            
-            
+        <input type="submit" value="Crear" class="boton boton-verder" name="submit" >
+        
+           
     </form>
-    <input type="submit" value="Crear PRODUCTO" class="boton boton-verder"  >
+  
 </main>
 
 <?php

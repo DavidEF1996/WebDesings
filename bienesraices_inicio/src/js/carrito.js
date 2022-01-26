@@ -35,9 +35,10 @@ function principal() {
   if (formulario) {
     formulario.addEventListener("submit", cotizarCostos);
   }
-if (formulario_crear){
+/*if (formulario_crear){
+
   formulario_crear.addEventListener("submit",datos);
-}
+}*/
   if (carrito) {
     carrito.addEventListener("click", EliminarProducto);
   }

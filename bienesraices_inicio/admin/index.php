@@ -43,12 +43,13 @@ incluirTemplate('header');
 
     <?php if(intval( $mensaje)===1): ?>
         <p class="alerta exito">Producto Insertado Correctamente</p>
+      
         <?php elseif (intval($mensaje)===2):?>
             <p class="alerta exito">Producto Actualizado Correctamente</p>
      <?php endif;?>
 <?//php echo $resultado_tablas ?>
       
-        <div class="menuProductos">
+        <div class="menuProductos" >
             
             <?php while ($fila = mysqli_fetch_row($resultado_tablas)):?> 
                 <?php $producto = "{$fila[0]}" ?>
